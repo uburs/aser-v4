@@ -28,12 +28,16 @@
         }
         .container.active {
             display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .video-box {
-            width: 100%;
+            width: 80%;
+            height: auto;
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
         .caption-overlay {
             position: absolute;
@@ -47,9 +51,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            background: rgba(0, 0, 0, 0.5); /* Optional: darken background for better text visibility */
         }
         .quiz-container {
-            order: 3;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -58,20 +62,22 @@
             background-color: #f9f9f9;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
         }
         .navigation {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
             display: flex;
             justify-content: space-between;
+            width: 100%;
+            margin-top: 20px;
         }
         button {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            margin-bottom: 10px;
             background-color: rgba(65, 125, 45, 0.941);
+            color: white;
+            border: none;
+            border-radius: 5px;
         }
         #surveyButton {
             padding: 15px 30px;
@@ -83,6 +89,12 @@
             font-size: 24px;
             font-weight: bold;
             text-align: center;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
