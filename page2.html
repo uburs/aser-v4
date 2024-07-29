@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion-Enhanced Captions - Page 2</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: none;
+            width: 90%;
+            height: 80%;
+            border: 2px solid #000;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .container.active {
+            display: flex;
+        }
+        .video-box {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .caption-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            color: rgb(71, 43, 43);
+            font-size: 18px;
+            line-height: 1.0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .quiz-container {
+            order: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .navigation {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            background-color: rgba(65, 125, 45, 0.941);
+        }
+        #surveyButton {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: rgb(198, 205, 125);
+        }
+    </style>
+</head>
+<body>
+    <div id="page2" class="container active">
+        <div class="video-box">
+            <video id="video2" autoplay muted></video>
+            <div class="caption-overlay" id="captionBox2">
+                <!-- Captions will appear here -->
+            </div>
+        </div>
+        <div id="quiz2" class="quiz-container">
+            <h3>Quiz: Which area does engineering cover?</h3>
+            <form id="quizForm2">
+                <label>
+                    <input type="radio" name="q2" value="Cooking"> Cooking
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="Building, design, and technology"> Building, design, and technology
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="History"> History
+                </label><br>
+            </form>
+        </div>
+        <div class="navigation">
+            <a href="page1.html"><button id="previous2">Previous</button></a>
+            <a href="page3.html"><button id="next2">Next</button></a>
+        </div>
+    </div>
+    <script>
+        const textPage2 = "Introduction to Engineering: Engineering is the application of scientific principles to design, build, and analyze objects and systems. It involves various disciplines such as mechanical, civil, electrical, and chemical engineering, each focusing on different aspects of technology and design. Mechanical engineering deals with the design and manufacturing of physical systems, while civil engineering focuses on the construction of infrastructure such as buildings and bridges. Electrical engineering encompasses the study of electronics, electromagnetism, and circuit design. Chemical engineering involves the transformation of raw materials into useful products through chemical processes. Understanding engineering principles allows for the creation of innovative solutions to complex problems, improves efficiency, and drives technological advancements across various industries. Engineers play a critical role in shaping the modern world by developing new technologies, enhancing existing systems, and ensuring sustainable development. As the demand for technological innovation grows, the field of engineering continues to evolve, incorporating cutting-edge research and advancements to address the challenges of the future. Before thinking about which pathway you want to take into engineering – e.g. academic or vocational – it’s important to have a good grasp of what type of engineering you want to specialise in. This will, after all, affect some of your really crucial decisions; e.g. what qualifications you decide to study or what company/organisation you ultimately find yourself working for. It’s worth noting that there are a number of overlaps between different types of engineering, and some types of engineering would require you to have similar passions and skills. Whilst there are a wide range of engineering specialisms to choose from, it might be useful to look at some of the more general engineering categories first.";
+        
+        const captionsPage2 = textPage2.split(' ').map(word => ({ text: word, emotion: "neutral" }));
+        
+        function displayCaptionPage2(captionBox, textArray, index = 0, wordsPerLine = 7) {
+            if (index < textArray.length) {
+                setTimeout(() => {
+                    let line = textArray.slice(index, index + wordsPerLine).map(word => word.text).join(' ');
+                    const span = document.createElement('span');
+                    span.classList.add('caption-text');
+                    span.textContent = line;
+        
+                    captionBox.appendChild(span);
+                    captionBox.appendChild(document.createElement('br'));
+                    captionBox.scrollTop = captionBox.scrollHeight; // Scroll to bottom
+        
+                    displayCaptionPage2(captionBox, textArray, index + wordsPerLine, wordsPerLine);
+                }, 3000); // Adjust the speed of the captions here
+            }
+        }
+        
+        window.onload = () => {
+            displayCaptionPage2(document.getElementById('captionBox2'), captionsPage2, 0, 7);
+        
+            // Video stream setup
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+                    document.getElementById('video2').srcObject = stream;
+                }).catch(function(error) {
+                    console.error("Error accessing webcam: ", error);
+                });
+            }
+        };
+    </script>
+</body>
+</html>
