@@ -9,17 +9,26 @@
             font-family: 'Times New Roman', Times, serif;
             background-color: #f0f8ff;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
-        .links {
+        .introduction {
+            max-width: 800px;
+            margin-bottom: 20px;
+            text-align: left;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        .navigation {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
         }
-        .links a {
+        .navigation a {
             margin: 10px;
             padding: 10px 20px;
             background-color: rgba(65, 125, 45, 0.941);
@@ -31,11 +40,32 @@
     </style>
 </head>
 <body>
-    <div class="links">
-        <a href="page1.html">Page 1</a>
-        <a href="page2.html">Page 2</a>
-        <a href="page3.html">Page 3</a>
-        <a href="page4.html">Page 4</a>
+    <div class="introduction">
+
+        <P>The purpose of Study 2 is for you to interact with four different caption prototypes, answer few quiz based on the captions, and do the post-study surveys.</P>
+
+
+        <p><b>Prototype 1: Basic Real-Time Captioning</b><br>
+        The first page of the prototype demonstrates a straightforward implementation of real-time captioning. The captions
+        are displayed in a dedicated caption box adjacent to the video feed of the speaker. This setup allows users to read the
+        captions while still being able to observe the speaker’s facial expressions and body language. The text is animated to
+        appear sequentially, simulating a live transcription environment.</p>
+
+        <p><b>Prototype 2: Real-time Caption Overlay on Video Feed</b><br>
+        This prototype introduces a real-time caption overlay on the video feed of the speaker. This ensures that users can read
+        captions while simultaneously accessing the speaker’s facial expressions.</p>
+
+        <p><b>Prototype 3: Enhanced Captioning with Emphasis</b><br>
+        The third page focuses on integrating emotional expressions into the captions. Emotional words are identified and
+        highlighted using color coding to reflect the speaker’s tone (e.g., green for happy, blue for sad). The captions are overlaid
+        on the live video feed, and the text moves upward, similar to real-time scrolling captions seen in live broadcasts.</p>
+
+        <p><b>Prototype 4: Real-time Caption with Emoji and Avatar</b><br>
+        The fourth page explores a more interactive approach by introducing emoji that changes facial expressions and gestures
+        based on the emotional tone of the text.</p>
+    </div>
+    <div class="navigation">
+        <a href="page1.html">Start</a>
     </div>
 </body>
 </html>
