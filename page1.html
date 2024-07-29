@@ -9,6 +9,7 @@
             font-family: 'Times New Roman', Times, serif;
             background-color: #f0f8ff;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -155,11 +156,11 @@
             font-size: 18px;
             background-color: rgb(198, 205, 125);
         }
-        
         .heading {
             margin-bottom: 20px;
             font-size: 24px;
             font-weight: bold;
+            text-align: center;
         }
     </style>
 </head>
@@ -192,9 +193,9 @@
     </div>
     <script>
         const textPage1 = "Introduction to Computer Science: Computer science is the study of computation, automation, and information. It involves the theory of computation, algorithms, data structures, computer and network design, and artificial intelligence. Understanding these concepts is crucial for developing efficient and innovative technological solutions. Computer science spans several core areas including programming, systems architecture, databases, and software engineering. Additionally, fields like artificial intelligence, machine learning, and data science have grown significantly in recent years. By mastering computer science principles, you can develop software that solves real-world problems, create systems that drive the future of technology, and contribute to advancements in numerous industries. The fields of computer science involve various disciplines under computer science. Generally, computer science is a discipline that deals with the study of computers, computing, and computational systems. This includes their algorithmic and theoretical bases. It focuses on the development, theory, design, and application of software and its systems. In turn, computer science fields involve the various subsets that exist within this general discipline. These fields often overlap, making it possible for a computer scientist in one field to act in other computer science fields Due to the diverse nature of computer science, a computer scientist's responsibilities can span from decoding abstract issues to human and computer interaction. Nevertheless, because the earth is becoming more interconnected, computer science skills have become increasingly necessary for the present day and the future. Disciplines like mathematics and engineering serve as influences for the foundations of computer science, making the design of the electronic circuit and the study of statistics, probability, and queuing theory relevant. ";
-        
+
         const captionsPage1 = textPage1.split(' ').map(word => ({ text: word, emotion: "neutral" }));
-        
+
         function displayCaption(captionBox, textArray, index = 0, wordsPerLine = 7) {
             if (index < textArray.length) {
                 setTimeout(() => {
@@ -204,19 +205,19 @@
                         span.textContent = word.text;
                         return span;
                     });
-        
+
                     line.forEach(span => captionBox.appendChild(span));
                     captionBox.appendChild(document.createElement('br'));
                     captionBox.scrollTop = captionBox.scrollHeight; // Scroll to bottom
-        
+
                     displayCaption(captionBox, textArray, index + wordsPerLine, wordsPerLine);
                 }, 3000); // Adjust the speed of the captions here
             }
         }
-        
+
         window.onload = () => {
             displayCaption(document.getElementById('captionBox1'), captionsPage1, 0, 7);
-        
+
             // Video stream setup
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                 navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
