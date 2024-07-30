@@ -16,7 +16,7 @@
             margin: 0;
         }
         .container {
-            display: none;
+            display: flex;
             width: 90%;
             height: 80%;
             border: 2px solid #000;
@@ -25,11 +25,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             position: relative;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-        .container.active {
-            display: flex;
         }
         .video-box {
             width: 70%;
@@ -69,11 +64,12 @@
             box-shadow: none; /* Remove any shadow */
         }
         .quiz-container {
-            width: 28%;
+            width: 30%;
             padding: 20px;
             background-color: #f9f9f9;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
         }
         .navigation {
             width: 100%;
@@ -122,10 +118,10 @@
                     <input type="radio" name="q2" value="History"> History
                 </label><br>
             </form>
-        </div>
-        <div class="navigation">
-            <a href="page1.html"><button id="previous2">Previous</button></a>
-            <a href="page3.html"><button id="next2">Next"></button></a>
+            <div class="navigation">
+                <a href="page1.html"><button id="previous2">Previous</button></a>
+                <a href="page3.html"><button id="next2">Next</button></a>
+            </div>
         </div>
     </div>
     <script>
