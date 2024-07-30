@@ -25,6 +25,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             position: relative;
+            flex-direction: row; /* Change to row */
         }
         .container.active {
             display: flex;
@@ -46,7 +47,6 @@
             pointer-events: none;
         }
         .quiz-container {
-            order: 3;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -55,6 +55,7 @@
             background-color: #f9f9f9;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-left: auto; /* Push to the right */
         }
         .emotion-happy {
             color: green;
