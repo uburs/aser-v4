@@ -25,13 +25,14 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             position: relative;
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: space-between;
         }
         .container.active {
             display: flex;
         }
         .video-box {
-            width: 100%;
+            width: 70%;
             height: 100%;
             display: flex;
             justify-content: center;
@@ -68,28 +69,22 @@
             box-shadow: none; /* Remove any shadow */
         }
         .quiz-container {
-            order: 3;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            width: 28%;
             padding: 20px;
             background-color: #f9f9f9;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .navigation {
-            position: absolute;
-            bottom: 20px;
             width: 100%;
             display: flex;
             justify-content: space-between;
+            padding: 10px 0;
         }
         button {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            margin-bottom: 10px;
             background-color: rgba(65, 125, 45, 0.941);
         }
         #surveyButton {
@@ -130,7 +125,7 @@
         </div>
         <div class="navigation">
             <a href="page1.html"><button id="previous2">Previous</button></a>
-            <a href="page3.html"><button id="next2">Next</button></a>
+            <a href="page3.html"><button id="next2">Next"></button></a>
         </div>
     </div>
     <script>
