@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emotion-Enhanced Captions - Page 3</title>
+    <title>Emotion-Enhanced Captions - Page 2</title>
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
@@ -16,7 +16,7 @@
             margin: 0;
         }
         .container {
-            display: none;
+            display: flex;
             width: 90%;
             height: 80%;
             border: 2px solid #000;
@@ -26,75 +26,13 @@
             overflow: hidden;
             position: relative;
         }
-        .container.active {
-            display: flex;
-        }
         .video-box {
-            width: 30%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-right: 2px solid #000;
-        }
-        .caption-box {
             width: 70%;
-            padding: 20px;
-            overflow-y: auto;
-            font-size: 18px;
-            line-height: 1.5;
-            background: #fff;
-            text-align: center;
-        }
-        .quiz-container {
-            order: 3;
+            height: 100%;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .emotion-happy {
-            color: green;
-        }
-        .emotion-sad {
-            color: blue;
-        }
-        .emotion-angry {
-            color: red;
-            animation: shake 0.5s;
-        }
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-            100% { transform: translateX(0); }
-        }
-        .caption-text {
-            display: inline-block;
-            margin-right: 5px;
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-        }
-        .caption-text.bold {
-            font-weight: bold;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        video {
-            width: 80%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
         .caption-overlay {
             position: absolute;
@@ -109,39 +47,33 @@
             flex-direction: column;
             align-items: center;
         }
-        .emotion-detection-overlay {
+        #captionBox2 {
             position: absolute;
             bottom: 0;
             width: 100%;
-            height: 100%;
-            overflow-y: hidden;
             padding: 20px;
             text-align: center;
-            color: black;
-            font-size: 18px;
+            color: rgb(242, 242, 246);
+            font-weight: bold;
+            background: transparent;
+            font-size: 20px;
             line-height: 1.0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            pointer-events: none;
+            box-shadow: none; /* Remove any shadow */
         }
-        .emotion-text {
-            display: inline-block;
-            margin-right: 5px;
-            animation: moveUp 10s linear infinite;
-        }
-        @keyframes moveUp {
-            from {
-                transform: translateY(100%);
-            }
-            to {
-                transform: translateY(-100%);
-            }
+        .quiz-container {
+            width: 30%;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .navigation {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
             display: flex;
             justify-content: space-between;
         }
@@ -149,8 +81,7 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            margin-bottom: 10px;
-            background-color: rgba(65, 125, 45, 0.941)
+            background-color: rgba(65, 125, 45, 0.941);
         }
         #surveyButton {
             padding: 15px 30px;
@@ -166,67 +97,64 @@
     </style>
 </head>
 <body>
-    <div class="heading">Caption Prototype 3</div>
-    <div id="page3" class="container active">
+    <div class="heading">Caption Prototype 2</div>
+    <div id="page2" class="container active">
         <div class="video-box">
-            <video id="video3" autoplay muted></video>
+            <video id="video2" autoplay muted style="width: 100%; height: 100%; object-fit: cover;"></video>
+            <div class="caption-overlay" id="captionBox2">
+                <!-- Captions will appear here -->
+            </div>
         </div>
-        <div class="caption-box" id="captionBox3">
-            <!-- Captions will appear here -->
-        </div>
-        <div id="quiz3" class="quiz-container">
-            <h3>Quiz: What are the recent growth areas in biology?</h3>
-            <form id="quizForm3">
-                <label>
-                    <input type="radio" name="q3" value="Artificial intelligence, machine learning, and data science"> Artificial intelligence, machine learning, and data science
-                </label><br>
-                <label>
-                    <input type="radio" name="q3" value="Genomics, biotechnology, and ecology"> Genomics, biotechnology, and ecology
-                </label><br>
-                <label>
-                    <input type="radio" name="q3" value="Carpentry"> Carpentry
-                </label><br>
-            </form>
-        </div>
-        <div class="navigation">
-            <a href="page2.html"><button id="previous3">Previous</button></a>
-            <a href="page4.html"><button id="next3">Next</button></a>
+        <div id="quiz2" class="quiz-container">
+            <div>
+                <h3>Quiz: Which area does engineering cover?</h3>
+                <form id="quizForm2">
+                    <label>
+                        <input type="radio" name="q2" value="Cooking"> Cooking
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q2" value="Building, design, and technology"> Building, design, and technology
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q2" value="History"> History
+                    </label><br>
+                </form>
+            </div>
+            <div class="navigation">
+                <a href="page1.html"><button id="previous2">Previous</button></a>
+                <a href="page3.html"><button id="next2">Next</button></a>
+            </div>
         </div>
     </div>
     <script>
-        const textPage3 = "Introduction to Biology: Biology is the scientific study of life and living organisms. It encompasses a wide range of fields, including <b>genetics</b>, <b>microbiology</b>, <b>ecology</b>, and <b>physiology</b>. Biologists explore the structure, function, growth, origin, evolution, and distribution of living organisms. <b>Genetics</b> focuses on the heredity and variation of organisms, while <b>microbiology</b> studies microscopic organisms such as bacteria, viruses, and fungi. <b>Ecology</b> examines the interactions of organisms with their environment, and <b>physiology</b> explores the functions and mechanisms within living systems. Modern biology is increasingly interdisciplinary, combining principles from chemistry, physics, and mathematics to understand complex biological systems. Recent advancements in <b>biotechnology</b> and <b>genomics</b> have revolutionized the field, leading to significant breakthroughs in medicine, agriculture, and environmental conservation. Understanding biology is essential for addressing global challenges such as disease outbreaks, environmental degradation, and food security. By studying biology, scientists can develop new treatments for diseases, enhance crop yields, and protect endangered species. As our knowledge of biological processes expands, biology will continue to play a crucial role in improving human health and preserving the natural world. Pursuing a career in biology can be immensely rewarding and exciting. Studying biology teaches you to ask questions, make detailed observations, evaluate evidence, and solve problems. Biologists study the evolution, natural history, and conservation of plants and animals; investigate the interactions of living organisms with light, the environment, or each other; and work to advance pharmaceuticals, biotechnology, and medical research. Studying biology can lead to a wide range of careers, from research to teaching, health care to policymaking. ";
+        const textPage2 = "Introduction to Engineering: Engineering is the application of scientific principles to design, build, and analyze objects and systems. It involves various disciplines such as mechanical, civil, electrical, and chemical engineering, each focusing on different aspects of technology and design. Mechanical engineering deals with the design and manufacturing of physical systems, while civil engineering focuses on the construction of infrastructure such as buildings and bridges. Electrical engineering encompasses the study of electronics, electromagnetism, and circuit design. Chemical engineering involves the transformation of raw materials into useful products through chemical processes. Understanding engineering principles allows for the creation of innovative solutions to complex problems, improves efficiency, and drives technological advancements across various industries. Engineers play a critical role in shaping the modern world by developing new technologies, enhancing existing systems, and ensuring sustainable development. As the demand for technological innovation grows, the field of engineering continues to evolve, incorporating cutting-edge research and advancements to address the challenges of the future. Before thinking about which pathway you want to take into engineering – e.g. academic or vocational – it’s important to have a good grasp of what type of engineering you want to specialise in. This will, after all, affect some of your really crucial decisions; e.g. what qualifications you decide to study or what company/organisation you ultimately find yourself working for. It’s worth noting that there are a number of overlaps between different types of engineering, and some types of engineering would require you to have similar passions and skills. Whilst there are a wide range of engineering specialisms to choose from, it might be useful to look at some of the more general engineering categories first.";
         
-        const captionsPage3 = textPage3.split(' ').map(word => {
-            return { text: word.replace(/<b>|<\/b>/g, ''), emotion: "neutral", bold: /<b>/.test(word) };
-        });
+        const captionsPage2 = textPage2.split(' ').map(word => ({ text: word, emotion: "neutral" }));
         
-        function displayCaption(captionBox, textArray, index = 0, wordsPerLine = 7) {
+        function displayCaptionPage2(captionBox, textArray, index = 0, wordsPerLine = 7) {
             if (index < textArray.length) {
                 setTimeout(() => {
-                    let line = textArray.slice(index, index + wordsPerLine).map(word => {
-                        const span = document.createElement('span');
-                        span.classList.add('caption-text', `emotion-${word.emotion}`);
-                        if (word.bold) span.classList.add('bold');
-                        span.textContent = word.text;
-                        return span;
-                    });
+                    let line = textArray.slice(index, index + wordsPerLine).map(word => word.text).join(' ');
+                    const span = document.createElement('span');
+                    span.classList.add('caption-text');
+                    span.textContent = line;
         
-                    line.forEach(span => captionBox.appendChild(span));
+                    captionBox.appendChild(span);
                     captionBox.appendChild(document.createElement('br'));
                     captionBox.scrollTop = captionBox.scrollHeight; // Scroll to bottom
         
-                    displayCaption(captionBox, textArray, index + wordsPerLine, wordsPerLine);
+                    displayCaptionPage2(captionBox, textArray, index + wordsPerLine, wordsPerLine);
                 }, 3000); // Adjust the speed of the captions here
             }
         }
         
         window.onload = () => {
-            displayCaption(document.getElementById('captionBox3'), captionsPage3, 0, 7);
+            displayCaptionPage2(document.getElementById('captionBox2'), captionsPage2, 0, 7);
         
             // Video stream setup
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                 navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-                    document.getElementById('video3').srcObject = stream;
+                    document.getElementById('video2').srcObject = stream;
                 }).catch(function(error) {
                     console.error("Error accessing webcam: ", error);
                 });
