@@ -89,6 +89,11 @@
             cursor: pointer;
             background-color: rgba(65, 125, 45, 0.941);
         }
+        #surveyButton {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: rgb(198, 205, 125);
+        }
         .heading {
             margin-bottom: 20px;
             font-size: 24px;
@@ -98,7 +103,7 @@
     </style>
 </head>
 <body>
-    <div class="heading">Caption Prototype 2:</div>
+    <div class="heading">Caption Prototype 2</div>
     <p>Speaker live video with caption overlay</p>
     <div id="page2" class="container active">
         <div class="content">
@@ -121,7 +126,7 @@
                         <input type="radio" name="q2" value="History"> History
                     </label><br>
                     <label>
-                        <input type="radio" name="q2" value="History"> Blogging
+                        <input type="radio" name="q2" value="Blogging"> Blogging
                     </label><br>
                 </form>
             </div>
@@ -129,6 +134,7 @@
         <div class="navigation">
             <a href="page1.html"><button id="previous2">Previous</button></a>
             <a href="page3.html"><button id="next2">Next</button></a>
+            <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/study2'">Begin Prototype 2 Survey</button>
         </div>
     </div>
     <script>
