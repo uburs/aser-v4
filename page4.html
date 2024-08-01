@@ -196,7 +196,7 @@
             return { text: word, emotion };
         });
 
-        function displayCaptionPage4(captionBox, textArray, index = 0, wordsPerLine = 10) {
+        function displayCaptionPage4(captionBox, textArray, index = 0, wordsPerLine = 14) {
             if (index < textArray.length) {
                 setTimeout(() => {
                     let line = textArray.slice(index, index + wordsPerLine).map(word => word.text).join(' ');
@@ -214,7 +214,7 @@
         }
 
         window.onload = () => {
-            displayCaptionPage4(document.getElementById('captionBox4'), captionsPage4, 0, 10);
+            displayCaptionPage4(document.getElementById('captionBox4'), captionsPage4, 0, 14);
 
             // Video stream setup
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
