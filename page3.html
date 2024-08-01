@@ -211,7 +211,7 @@
             return { text: word.replace(/<b>|<\/b>/g, ''), emotion: "neutral", bold: /<b>/.test(word) };
         });
         
-        function displayCaption(captionBox, textArray, index = 0, wordsPerLine = 7) {
+        function displayCaption(captionBox, textArray, index = 0, wordsPerLine = 10) {
             if (index < textArray.length) {
                 setTimeout(() => {
                     let line = textArray.slice(index, index + wordsPerLine).map(word => {
@@ -232,7 +232,7 @@
         }
         
         window.onload = () => {
-            displayCaption(document.getElementById('captionBox3'), captionsPage3, 0, 7);
+            displayCaption(document.getElementById('captionBox3'), captionsPage3, 0, 10);
         
             // Video stream setup
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {

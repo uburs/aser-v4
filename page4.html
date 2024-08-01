@@ -182,7 +182,9 @@
 -->
 <div class="navigation">
 <!--    <a href="page3.html"><button id="previous4">Previous</button></a>         -->
-<button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype4'">Begin Prototype 4 Survey</button>
+<!--
+<button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype4'">Begin Prototype 4 Survey</button>  
+-->
 </div>
 </div>
 <script>
@@ -194,7 +196,7 @@
             return { text: word, emotion };
         });
 
-        function displayCaptionPage4(captionBox, textArray, index = 0, wordsPerLine = 7) {
+        function displayCaptionPage4(captionBox, textArray, index = 0, wordsPerLine = 10) {
             if (index < textArray.length) {
                 setTimeout(() => {
                     let line = textArray.slice(index, index + wordsPerLine).map(word => word.text).join(' ');
@@ -212,7 +214,7 @@
         }
 
         window.onload = () => {
-            displayCaptionPage4(document.getElementById('captionBox4'), captionsPage4, 0, 7);
+            displayCaptionPage4(document.getElementById('captionBox4'), captionsPage4, 0, 10);
 
             // Video stream setup
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {

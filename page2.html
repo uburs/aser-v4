@@ -147,7 +147,7 @@
         
         const captionsPage2 = textPage2.split(' ').map(word => ({ text: word, emotion: "neutral" }));
         
-        function displayCaptionPage2(captionBox, textArray, index = 0, wordsPerLine = 7) {
+        function displayCaptionPage2(captionBox, textArray, index = 0, wordsPerLine = 10) {
             if (index < textArray.length) {
                 setTimeout(() => {
                     let line = textArray.slice(index, index + wordsPerLine).map(word => word.text).join(' ');
@@ -165,7 +165,7 @@
         }
         
         window.onload = () => {
-            displayCaptionPage2(document.getElementById('captionBox2'), captionsPage2, 0, 7);
+            displayCaptionPage2(document.getElementById('captionBox2'), captionsPage2, 0, 10);
         
             // Video stream setup
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
