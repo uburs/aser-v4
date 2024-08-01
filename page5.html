@@ -150,17 +150,17 @@
                 if (response.ok) {
                     const result = await response.json();
                     if (result.status === 'success') {
-                        alert(result.message);
+                        //alert(result.message);
                         window.location.href = 'https://virginiatech.questionpro.com/prototype4';
                     } else {
-                        alert(`There was an error submitting your responses. Please try again. Error: ${result.message}`);
+                        //alert(`There was an error submitting your responses. Please try again. Error: ${result.message}`);
                     }
                 } else {
                     const responseBody = await response.text();
-                    alert(`There was an error submitting your responses. Please try again. Response: ${responseBody}`);
+                    //alert(`There was an error submitting your responses. Please try again. Response: ${responseBody}`);
                 }
             } catch (error) {
-                alert(`There was an error submitting your responses. Please try again. Error: ${error.message}`);
+                //alert(`There was an error submitting your responses. Please try again. Error: ${error.message}`);
             }
         }
     </script>
