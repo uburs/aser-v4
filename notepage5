@@ -26,20 +26,6 @@
             position: relative;
             padding: 20px;
         }
-        .quiz-container {
-            margin-bottom: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: rgba(65, 125, 45, 0.941);
-        }
-        #surveyButton {
-            padding: 15px 30px;
-            font-size: 18px;
-            background-color: rgb(198, 205, 125);
-        }
     </style>
 </head>
 <body>
@@ -111,8 +97,11 @@
                     <input name="q4" type="radio" value="Facebook Content Creator"/> Facebook Content Creator
                 </label><br/>
             </form>
-            <button id="surveyButton" onclick="submitResponses()">Begin Prototype 4 Survey</button>
+            <button id="submit" onclick="submitResponses()">Submit Quiz</button>
         </div>
+        <form action="survey_link.html" method="get">
+            <button type="submit">Submit</button>
+        </form>
     </div>
     <script>
         async function submitResponses() {
@@ -143,7 +132,6 @@
                     const result = await response.json();
                     if (result.status === 'success') {
                         alert(result.message);
-                        window.location.href = 'https://virginiatech.questionpro.com/prototype4';
                     } else {
                         alert(`There was an error submitting your responses. Please try again. Error: ${result.message}`);
                     }
