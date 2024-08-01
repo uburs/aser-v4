@@ -37,6 +37,30 @@
             font-size: 18px;
             border-radius: 5px;
         }
+        .camera-permission {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .camera-permission button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .allow-every-visit {
+            background-color: #4caf50;
+            color: white;
+        }
+        .allow-this-time {
+            background-color: #2196f3;
+            color: white;
+        }
+        .never-allow {
+            background-color: #f44336;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -68,6 +92,13 @@
     </div>
     <div class="navigation">
         <a href="page1.html">Start</a>
+    </div>
+    <div class="camera-permission">
+        <p>To enhance your experience, please allow camera access:</p>
+        <button class="allow-every-visit" onclick="alert('Camera access allowed on every visit')">Allow on every visit</button>
+        <button class="allow-this-time" onclick="alert('Camera access allowed this time')">Allow this time</button>
+        <button class="never-allow" onclick="alert('Camera access denied')">Never allow</button>
+        <p>We encourage you to select "Allow on every visit" for the best experience with real-time captioning and emotional expression features.</p>
     </div>
 </body>
 </html>
