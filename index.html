@@ -24,19 +24,6 @@
             font-size: 18px;
             line-height: 1.5;
         }
-        .navigation {
-            display: flex;
-            justify-content: center;
-        }
-        .navigation a {
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: rgba(65, 125, 45, 0.941);
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 5px;
-        }
         .camera-permission {
             margin-top: 20px;
             text-align: center;
@@ -56,21 +43,36 @@
         .allow-this-time {
             background-color: #2196f3;
             color: white;
+            opacity: 0.5;
+            cursor: not-allowed;
         }
         .never-allow {
             background-color: #f44336;
             color: white;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .navigation {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .navigation a {
+            padding: 20px 40px;
+            background-color: #ffa500;
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
 
-    <H1>Study 2</H1>
+    <h1>Study 2</h1>
     <div class="introduction">
-
-        <P>The purpose of Study 2 is for you to interact with four different caption prototypes, answer few quiz based on the captions, and do the post-study surveys.</P>
-
-
+        <p>The purpose of Study 2 is for you to interact with four different caption prototypes, answer few quiz based on the captions, and do the post-study surveys.</p>
         <p><b>Prototype 1: Basic Real-Time Captioning</b><br>
         The first page of the prototype demonstrates a straightforward implementation of real-time captioning. The captions
         are displayed in a dedicated caption box adjacent to the video feed of the speaker. This setup allows users to read the
@@ -90,15 +92,15 @@
         The fourth page explores a more interactive approach by introducing emoji that changes facial expressions and gestures
         based on the emotional tone of the text.</p>
     </div>
-    <div class="navigation">
-        <a href="page1.html">Start</a>
-    </div>
     <div class="camera-permission">
         <p>To enhance your experience, please allow camera access:</p>
         <button class="allow-every-visit" onclick="alert('Camera access allowed on every visit')">Allow on every visit</button>
-        <button class="allow-this-time" onclick="alert('Camera access allowed this time')">Allow this time</button>
-        <button class="never-allow" onclick="alert('Camera access denied')">Never allow</button>
+        <button class="allow-this-time" disabled>Allow this time</button>
+        <button class="never-allow" disabled>Never allow</button>
         <p>We encourage you to select "Allow on every visit" for the best experience with real-time captioning and emotional expression features.</p>
+    </div>
+    <div class="navigation">
+        <a href="page1.html">Start</a>
     </div>
 </body>
 </html>
