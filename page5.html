@@ -3,139 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emotion-Enhanced Captions - Page 5</title>
+    <title>Chemistry Quiz</title>
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            font-family: 'Times New Roman', Times, serif;
-            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            background-color: #f9f9f9;
+            overflow-x: hidden; /* Prevent horizontal overflow */
         }
         .container {
-            width: 90%;
-            height: auto;
-            border: 2px solid #000;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: relative;
-            padding: 20px;
-            display: flex;
+            display: none; /* Hide all containers by default */
             flex-direction: column;
             align-items: center;
-            margin: auto;
+            text-align: left;
+            min-height: 80vh;
+            width: 100%; /* Full width to prevent overflow */
+            margin: 0 30px;
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+        .container.active {
+            display: flex; /* Show only the active container */
+        }
+        .container p {
+            margin: 0;
+            text-align: left;
+        }
+        .nav-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 600px;
+        }
+        .nav-buttons button {
+            color: rgb(230, 227, 226);
+            background-color: rgb(52, 141, 209);
+            width: 200px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .complete-survey-button {
+            width: 100px;
+            height: 40px;
+            font-size: 18px;
+            background-color: #800000;
+            color: rgb(232, 231, 226);
+            border: none;
+            border-radius: 5px;
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+            align-self: center;
+        }
+        h1, h3 {
+            text-align: center;
+            font-weight: bold;
+            color: #800000;
         }
         .quiz-container {
+            margin-top: 20px;
+            text-align: left;
             width: 100%;
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            max-width: 600px;
         }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: rgba(65, 125, 45, 0.941);
-        }
-        #surveyButton {
-            padding: 15px 30px;
-            font-size: 18px;
-            background-color: rgb(198, 205, 125);
+        .quiz-question {
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="quiz-container" id="quiz1">
-            <h3>Quiz: What is computer science?</h3>
-            <form id="quizForm1">
-                <label>
-                    <input name="q1" type="radio" value="The study of languages"/> The study of languages
-                </label><br/>
-                <label>
-                    <input name="q1" type="radio" value="The study of computation, automation, and information"/> The study of computation, automation, and information
-                </label><br/>
-                <label>
-                    <input name="q1" type="radio" value="The study of biology"/> The study of biology
-                </label><br/>
-                <label>
-                    <input name="q1" type="radio" value="Coding"/> Coding
-                </label><br/>
-            </form>
+    
+    <div id="video-section-1" class="container active">
+        <h1>Chemistry Lecture Video</h1>
+        <p>This recorded video is just an example demonstrating a real-time lecture in a Chemistry class. </p>
+        <p>The idea is to demonstrate how some students need an accessibility support to be able to participate in the class.</p>
+        <div>
+            <figure>
+                <video width="900" height="800" controls>
+                    <source src="images/matter.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </figure>
         </div>
-        <div class="quiz-container" id="quiz2">
-            <h3>Quiz: Which area does engineering cover?</h3>
-            <form id="quizForm2">
-                <label>
-                    <input name="q2" type="radio" value="Cooking"/> Cooking
-                </label><br/>
-                <label>
-                    <input name="q2" type="radio" value="Building, design, and technology"/> Building, design, and technology
-                </label><br/>
-                <label>
-                    <input name="q2" type="radio" value="History"/> History
-                </label><br/>
-                <label>
-                    <input name="q2" type="radio" value="Blogging"/> Blogging
-                </label><br/>
-            </form>
-        </div>
-        <div class="quiz-container" id="quiz3">
-            <h3>Quiz: What are the recent growth areas in biology?</h3>
-            <form id="quizForm3">
-                <label>
-                    <input name="q3" type="radio" value="Artificial intelligence, machine learning, and data science"/> Artificial intelligence, machine learning, and data science
-                </label><br/>
-                <label>
-                    <input name="q3" type="radio" value="Genomics, biotechnology, and ecology"/> Genomics, biotechnology, and ecology
-                </label><br/>
-                <label>
-                    <input name="q3" type="radio" value="Carpentry"/> Carpentry
-                </label><br/>
-                <label>
-                    <input name="q3" type="radio" value="Space exploration"/> Space exploration
-                </label><br/>
-            </form>
-        </div>
-        <div class="quiz-container" id="quiz4">
-            <h3>Quiz: One career in Chemistry is:</h3>
-            <form id="quizForm4">
-                <label>
-                    <input name="q4" type="radio" value="Tailoring"/> Tailoring
-                </label><br/>
-                <label>
-                    <input name="q4" type="radio" value="Gardening"/> Gardening
-                </label><br/>
-                <label>
-                    <input name="q4" type="radio" value="Pharmacist"/> Pharmacist
-                </label><br/>
-                <label>
-                    <input name="q4" type="radio" value="Facebook Content Creator"/> Facebook Content Creator
-                </label><br/>
-            </form>
-            <button id="surveyButton" onclick="submitResponses()">Begin Prototype 4 Survey</button>
+        <h2>You will access the real-time caption for this video lecture in the next page.</h2>
+        <div class="nav-buttons">
+            <button onclick="showPage(1)">Next</button>
         </div>
     </div>
+    
+    <div id="video-section-2" class="container">
+        <h1>ASR Captions of the Lecture Video Shown in Previous Page</h1>
+        <div>
+            <figure>
+                <video width="900" height="800" controls>
+                    <source src="images/matterTranscript.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </figure>
+        </div>
+
+        <div class="nav-buttons">
+            <button onclick="showPage(0)">Previous</button>
+            <button onclick="showPage(2)">Next</button>
+        </div>
+    </div>
+
+    
+    <div id="quiz-section" class="container">
+        <h1>Quiz</h1>
+        <p>The following quiz is based on the content covered in the lecture video on page 1 and the corresponding caption on page 2.</p>
+        <p>The purpose of the quiz is to determine comprehension.</p>
+        <div class="quiz-container">
+            <div class="quiz-question">
+                <p>1. Matter is composed of a tiny unit called?</p>
+                <label><input type="radio" name="question1" value="Particle"> Particle</label><br>
+                <label><input type="radio" name="question1" value="Electron"> Electron</label><br>
+                <label><input type="radio" name="question1" value="Atom"> Atom</label><br>
+                <label><input type="radio" name="question1" value="Proton"> Proton</label>
+            </div>
+            <div class="quiz-question">
+                <p>2. Which of the following is an example of matter?</p>
+                <label><input type="radio" name="question2" value="happiness"> happiness</label><br>
+                <label><input type="radio" name="question2" value="excitement"> excitement</label><br>
+                <label><input type="radio" name="question2" value="water"> water</label><br>
+                <label><input type="radio" name="question2" value="space"> space</label>
+            </div>
+            <button class="complete-survey-button" onclick="submitResponses()">Submit</button>
+        </div>
+        <div class="nav-buttons">
+            <button id="beginSurveyButton" onclick="submitResponses()">Begin Study 1 Survey</button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Navigation and Submission -->
     <script>
+        function showPage(pageIndex) {
+            console.log("Button clicked, showing page:", pageIndex);
+            const sections = document.querySelectorAll('.container');
+            sections.forEach((section, index) => {
+                if (index === pageIndex) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+        }
+
         async function submitResponses() {
-            const quiz1Response = document.querySelector('input[name="q1"]:checked') ? document.querySelector('input[name="q1"]:checked').value : "No response";
-            const quiz2Response = document.querySelector('input[name="q2"]:checked') ? document.querySelector('input[name="q2"]:checked').value : "No response";
-            const quiz3Response = document.querySelector('input[name="q3"]:checked') ? document.querySelector('input[name="q3"]:checked').value : "No response";
-            const quiz4Response = document.querySelector('input[name="q4"]:checked') ? document.querySelector('input[name="q4"]:checked').value : "No response";
+            const quiz1Response = document.querySelector('input[name="question1"]:checked') ? document.querySelector('input[name="question1"]:checked').value : "No response";
+            const quiz2Response = document.querySelector('input[name="question2"]:checked') ? document.querySelector('input[name="question2"]:checked').value : "No response";
             const email = 'sundavid7740@gmail.com'; // Or get the email from a form field
 
             const responses = {
                 email: email,
                 q1: quiz1Response,
-                q2: quiz2Response,
-                q3: quiz3Response,
-                q4: quiz4Response
+                q2: quiz2Response
             };
 
             try {
@@ -151,7 +181,7 @@
                     const result = await response.json();
                     if (result.status === 'success') {
                         alert(result.message);
-                        window.location.href = 'https://virginiatech.questionpro.com/prototype4';
+                        window.location.href = 'https://virginiatech.questionpro.com/study1';
                     } else {
                         alert(`There was an error submitting your responses. Please try again. Error: ${result.message}`);
                     }
