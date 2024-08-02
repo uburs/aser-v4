@@ -32,6 +32,7 @@
         .video-box {
             width: 30%;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             border-right: 2px solid #000;
@@ -164,6 +165,15 @@
             font-weight: bold;
             text-align: center;
         }
+        .control-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .volume-slider {
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -172,33 +182,18 @@
     <div id="page1" class="container active">
         <div class="video-box">
             <video id="video1" src="images/introComputing.mp4" autoplay muted></video>
+            <div class="control-buttons">
+                <button id="playPauseButton">Pause</button>
+                <label for="volumeSlider">Volume:</label>
+                <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.1" value="1">
+            </div>
         </div>
         <div class="caption-box" id="captionBox1">
             <!-- Captions will appear here -->
         </div>
 
-        <!--
-        <div id="quiz1" class="quiz-container">
-            <h3>Quiz: What is computer science?</h3>
-            <form id="quizForm1">
-                <label>
-                    <input type="radio" name="q1" value="The study of languages"> The study of languages
-                </label><br>
-                <label>
-                    <input type="radio" name="q1" value="The study of computation, automation, and information"> The study of computation, automation, and information
-                </label><br>
-                <label>
-                    <input type="radio" name="q1" value="The study of biology"> The study of biology
-                </label><br>
-                <label>
-                    <input type="radio" name="q1" value="Coding"> Coding
-                </label><br>
-            </form>
-        </div>
-    -->
-        
         <div class="navigation">
-           <a href="page2.html"><button id="next1">Next</button></a>  
+            <a href="page2.html"><button id="next1">Next</button></a>  
             <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype1'">Begin Prototype 1 Survey</button>
         </div>
     </div>
@@ -229,6 +224,24 @@
         window.onload = () => {
             displayCaption(document.getElementById('captionBox1'), captionsPage1, 0, 13);
         };
+
+        const video = document.getElementById('video1');
+        const playPauseButton = document.getElementById('playPauseButton');
+        const volumeSlider = document.getElementById('volumeSlider');
+
+        playPauseButton.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                playPauseButton.textContent = 'Pause';
+            } else {
+                video.pause();
+                playPauseButton.textContent = 'Play';
+            }
+        });
+
+        volumeSlider.addEventListener('input', () => {
+            video.volume = volumeSlider.value;
+        });
     </script>
 </body>
 </html>
