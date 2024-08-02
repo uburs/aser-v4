@@ -133,7 +133,7 @@
                 </div>
                 <button id="muteButton" class="mute-button">
                     <svg id="speakerIcon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3 10v4h4l5 5V5l-5 5H3zm13.5-1.5v2a2.5 2.5 0 0 0 0-5v2a.5.5 0 0 1 0 1z"></path>
+                        <path d="M3 10v4h4l5 5V5l-5 5H3zm11.5 0a2.5 2.5 0 0 0 0-5v2a.5.5 0 0 1 0 1v2a.5.5 0 0 1 0 1v2a2.5 2.5 0 0 0 0-5v2a.5.5 0 0 1 0 1z"></path>
                         <path d="M14 3.23v2.06a9.978 9.978 0 0 1 5.5 8.71 9.978 9.978 0 0 1-5.5 8.71v2.06c4.88-1.29 8.5-5.78 8.5-10.77S18.88 4.52 14 3.23z"></path>
                     </svg>
                 </button>
@@ -203,12 +203,11 @@
         muteButton.addEventListener('click', () => {
             video.muted = !video.muted;
             if (video.muted) {
-                speakerIcon.innerHTML = '<path d="M3 10v4h4l5 5V5l-5 5H3zm13.5-1.5v2a2.5 2.5 0 0 0 0-5v2a.5.5 0 0 1 0 1z"></path><path d="M14 3.23v2.06a9.978 9.978 0 0 1 5.5 8.71 9.978 9.978 0 0 1-5.5 8.71v2.06c4.88-1.29 8.5-5.78 8.5-10.77S18.88 4.52 14 3.23z"></path>';
+                speakerIcon.innerHTML = '<path d="M3 10v4h4l5 5V5l-5 5H3zm11.5 0a2.5 2.5 0 0 0 0-5v2a.5.5 0 0 1 0 1v2a.5.5 0 0 1 0 1z"></path><path d="M14 3.23v2.06a9.978 9.978 0 0 1 5.5 8.71 9.978 9.978 0 0 1-5.5 8.71v2.06c4.88-1.29 8.5-5.78 8.5-10.77S18.88 4.52 14 3.23z"></path>';
             } else {
-                speakerIcon.innerHTML = '<path d="M3 10v4h4l5 5V5l-5 5H3zm11.83 1.41l2.58 2.59L18 12l-4-4-1.59 1.59L14.83 11H10v2h4.83z"></path>';
+                speakerIcon.innerHTML = '<path d="M3 10v4h4l5 5V5l-5 5H3zm11.5 0a2.5 2.5 0 0 0 0-5v2a.5.5 0 0 1 0 1v2a.5.5 0 0 1 0 1z"></path><path d="M14 3.23v2.06a9.978 9.978 0 0 1 5.5 8.71 9.978 9.978 0 0 1-5.5 8.71v2.06c4.88-1.29 8.5-5.78 8.5-10.77S18.88 4.52 14 3.23z"></path>';
             }
         });
     </script>
 </body>
 </html>
-
