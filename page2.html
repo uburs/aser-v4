@@ -101,25 +101,6 @@
             font-weight: bold;
             text-align: center;
         }
-        .mute-button {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            padding: 10px;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-        }
-        .mute-button svg {
-            width: 24px;
-            height: 24px;
-        }
     </style>
 </head>
 <body>
@@ -128,46 +109,15 @@
     <div id="page2" class="container active">
         <div class="content">
             <div class="video-box">
-                <video id="video2" src="images/engineering.mp4" autoplay muted style="width: 100%; height: 100%; object-fit: cover;"></video>
+                <video id="video2" src="images/engineering.mp4" controls autoplay style="width: 100%; height: 100%; object-fit: cover;"></video>
                 <div class="caption-overlay" id="captionBox2">
                     <!-- Captions will appear here -->
                 </div>
-                <button id="muteButton" class="mute-button">
-                    <svg id="speakerIcon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3 10v4h4l5 5V5l-5 5H3zm11.5 0a2.5 2.5 0 0 0 0-5v2a.5.5 0 0 1 0 1v2a.5.5 0 0 1 0 1z"></path>
-                        <path d="M14 3.23v2.06a9.978 9.978 0 0 1 5.5 8.71 9.978 9.978 0 0 1-5.5 8.71v2.06c4.88-1.29 8.5-5.78 8.5-10.77S18.88 4.52 14 3.23z"></path>
-                    </svg>
-                </button>
             </div>
-
-            <!--
-            <div id="quiz2" class="quiz-container">
-                <h3>Quiz: Which area does engineering cover?</h3>
-                <form id="quizForm2">
-                    <label>
-                        <input type="radio" name="q2" value="Cooking"> Cooking
-                    </label><br>
-                    <label>
-                        <input type="radio" name="q2" value="Building, design, and technology"> Building, design, and technology
-                    </label><br>
-                    <label>
-                        <input type="radio" name="q2" value="History"> History
-                    </label><br>
-                    <label>
-                        <input type="radio" name="q2" value="Blogging"> Blogging
-                    </label><br>
-                </form>
-            </div>
-        -->
-
         </div>
         <div class="navigation">
-            
             <a href="page1.html"><button id="previous2">Previous</button></a>     
             <a href="page3.html"><button id="next2">Next</button></a>    
-
-        
-
             <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype2'">Begin Prototype 2 Survey</button>
         </div>
     </div>
@@ -196,19 +146,6 @@
         window.onload = () => {
             displayCaptionPage2(document.getElementById('captionBox2'), captionsPage2, 0, 13);
         };
-
-        const video = document.getElementById('video2');
-        const muteButton = document.getElementById('muteButton');
-        const speakerIcon = document.getElementById('speakerIcon');
-
-        muteButton.addEventListener('click', () => {
-            video.muted = !video.muted;
-            if (video.muted) {
-                speakerIcon.innerHTML = '<path d="M3 10v4h4l5 5V5l-5 5H3zm11.5 0a2.5 2.5 0 0 0 0-5v2a.5.5 0 0 1 0 1v2a.5.5 0 0 1 0 1z"></path><path d="M14 3.23v2.06a9.978 9.978 0 0 1 5.5 8.71 9.978 9.978 0 0 1-5.5 8.71v2.06c4.88-1.29 8.5-5.78 8.5-10.77S18.88 4.52 14 3.23z"></path>';
-            } else {
-                speakerIcon.innerHTML = '<path d="M3 10v4h4l5 5V5l-5 5H3zm11.5 0a2.5 2.5 0 0 0 0-5v2a.5.5 0 0 1 0 1v2a.5.5 0 0 1 0 1z"></path><path d="M14 3.23v2.06a9.978 9.978 0 0 1 5.5 8.71 9.978 9.978 0 0 1-5.5 8.71v2.06c4.88-1.29 8.5-5.78 8.5-10.77S18.88 4.52 14 3.23z"></path>';
-            }
-        });
     </script>
 </body>
 </html>
