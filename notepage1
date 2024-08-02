@@ -156,6 +156,7 @@
             padding: 15px 30px;
             font-size: 18px;
             background-color: rgb(198, 205, 125);
+            margin-left: auto;
         }
         .heading {
             margin-bottom: 20px;
@@ -175,6 +176,8 @@
         <div class="caption-box" id="captionBox1">
             <!-- Captions will appear here -->
         </div>
+
+        <!--
         <div id="quiz1" class="quiz-container">
             <h3>Quiz: What is computer science?</h3>
             <form id="quizForm1">
@@ -192,8 +195,10 @@
                 </label><br>
             </form>
         </div>
+    -->
+        
         <div class="navigation">
-            <a href="page2.html"><button id="next1">Next</button></a>
+           <a href="page2.html"><button id="next1">Next</button></a>  
             <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype1'">Begin Prototype 1 Survey</button>
         </div>
     </div>
@@ -202,7 +207,7 @@
 
         const captionsPage1 = textPage1.split(' ').map(word => ({ text: word, emotion: "neutral" }));
 
-        function displayCaption(captionBox, textArray, index = 0, wordsPerLine = 7) {
+        function displayCaption(captionBox, textArray, index = 0, wordsPerLine = 13) {
             if (index < textArray.length) {
                 setTimeout(() => {
                     let line = textArray.slice(index, index + wordsPerLine).map(word => {
@@ -222,7 +227,7 @@
         }
 
         window.onload = () => {
-            displayCaption(document.getElementById('captionBox1'), captionsPage1, 0, 7);
+            displayCaption(document.getElementById('captionBox1'), captionsPage1, 0, 13);
 
             // Video stream setup
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {

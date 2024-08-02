@@ -171,7 +171,7 @@
     <p>Normal caption and speaker live video</p>
     <div id="page1" class="container active">
         <div class="video-box">
-            <video id="video1" autoplay muted></video>
+            <video id="video1" src="images/introComputing.mp4" autoplay muted></video>
         </div>
         <div class="caption-box" id="captionBox1">
             <!-- Captions will appear here -->
@@ -228,15 +228,6 @@
 
         window.onload = () => {
             displayCaption(document.getElementById('captionBox1'), captionsPage1, 0, 13);
-
-            // Video stream setup
-            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-                navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-                    document.getElementById('video1').srcObject = stream;
-                }).catch(function(error) {
-                    console.error("Error accessing webcam: ", error);
-                });
-            }
         };
     </script>
 </body>
