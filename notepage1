@@ -205,13 +205,11 @@
                     captionBox.scrollTop = captionBox.scrollHeight; // Scroll to bottom
 
                     displayCaption(captionBox, textArray, index + wordsPerLine, wordsPerLine);
-                }, 4500); // Adjust the speed of the captions here
+                }, 5000); // Adjust the speed of the captions here
             }
         }
 
         window.onload = () => {
-            const video = document.getElementById('video1');
-            video.volume = 0.20; // Set the volume to 35%
             displayCaption(document.getElementById('captionBox1'), captionsPage1, 0, 13);
         };
     </script>
