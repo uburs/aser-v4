@@ -165,15 +165,6 @@
             font-weight: bold;
             text-align: center;
         }
-        .control-buttons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 10px;
-        }
-        .volume-slider {
-            margin-left: 10px;
-        }
     </style>
 </head>
 <body>
@@ -182,11 +173,6 @@
     <div id="page1" class="container active">
         <div class="video-box">
             <video id="video1" src="images/introComputing.mp4" controls autoplay></video>
-            <div class="control-buttons">
-                <button id="playPauseButton">Pause</button>
-                <label for="volumeSlider">Volume:</label>
-                <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.1" value="1">
-            </div>
         </div>
         <div class="caption-box" id="captionBox1">
             <!-- Captions will appear here -->
@@ -224,24 +210,6 @@
         window.onload = () => {
             displayCaption(document.getElementById('captionBox1'), captionsPage1, 0, 13);
         };
-
-        const video = document.getElementById('video1');
-        const playPauseButton = document.getElementById('playPauseButton');
-        const volumeSlider = document.getElementById('volumeSlider');
-
-        playPauseButton.addEventListener('click', () => {
-            if (video.paused) {
-                video.play();
-                playPauseButton.textContent = 'Pause';
-            } else {
-                video.pause();
-                playPauseButton.textContent = 'Play';
-            }
-        });
-
-        volumeSlider.addEventListener('input', () => {
-            video.volume = volumeSlider.value;
-        });
     </script>
 </body>
 </html>
