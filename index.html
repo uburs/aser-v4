@@ -3,250 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chemistry Quiz</title>
-    <!-- Include Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Emotion-Enhanced Captions</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f0f8ff;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center; /* Center content vertically */
-            background-color: #f9f9f9;
-            min-height: 100vh; /* Full viewport height */
-            overflow-x: hidden; /* Prevent horizontal overflow */
-        }
-        .container {
-            display: none; /* Hide all containers by default */
-            flex-direction: column;
-            align-items: center;
-            text-align: left;
-            min-height: 80vh;
-            width: 100%; /* Full width to prevent overflow */
-            margin: 0 30px;
-            overflow-y: auto; /* Enable vertical scrolling */
-        }
-        .container.active {
-            display: flex; /* Show only the active container */
-        }
-        .container p {
-            margin: 0;
-            text-align: left;
-        }
-        .nav-buttons {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 600px;
-        }
-        .nav-buttons button {
-            color: rgb(230, 227, 226);
-            background-color: rgb(52, 141, 209);
-            width: 200px;
-            height: 50px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-        .complete-survey-button {
-            width: 100px;
-            height: 40px;
-            font-size: 18px;
-            background-color: #800000;
-            color: rgb(232, 231, 226);
-            border: none;
-            border-radius: 5px;
-        }
-        video {
-            max-width: 100%;
-            height: auto;
-            align-self: center;
-        }
-        h1, h3 {
-            text-align: center;
-            font-weight: bold;
-            color: #800000;
-        }
-        .quiz-container {
-            margin-top: 20px;
-            text-align: left;
-            width: 100%;
-            max-width: 600px;
-        }
-        .quiz-question {
-            margin-bottom: 15px;
-        }
-        .welcome-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            text-align: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: #ffffff;
-            border-radius: 8px;
+            box-sizing: border-box;
         }
-        .welcome-container img {
-            max-width: 80%;
-            height: auto;
-            margin: 20px 0;
+        .introduction {
+            max-width: 800px;
+            margin-bottom: 20px;
+            text-align: left;
+            font-size: 18px;
+            line-height: 1.5;
         }
-        .play-button-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .camera-permission {
             margin-top: 20px;
+            text-align: center;
         }
-        .play-button {
+        .camera-permission button {
+            margin: 5px;
             padding: 10px 20px;
-            font-size: 20px;
-            color: #fff;
-            background-color: #007BFF;
+            font-size: 16px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+        }
+        .allow-every-visit {
+            background-color: #4caf50;
+            color: white;
+        }
+        .allow-this-time {
+            background-color: #2196f3;
+            color: white;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .never-allow {
+            background-color: #f44336;
+            color: white;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .navigation {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .navigation a {
+            padding: 20px 40px;
+            background-color: #b3c948;
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
-    <div id="welcome-container" class="container active welcome-container">
-        <h1>Welcome to Study 1</h1>
-        <p>Here, you will perform two activities:</p>
-        <p>1. Watch a lecture video similar to a classroom experience.</p>
-        <p>2. Then assume you use automatic speech transcription (ASR) captions to provide you accessibility in the classroom, the second video is a transcription of the lecture video.</p>
-        <p>After watching the video and reading the corresponding caption, you will conclude with a comprehension quiz on the lecture experience and a survey.</p>
-        <img src="/mnt/data/image.png" alt="Welcome Image">
-        <div class="play-button-container">
-            <button class="play-button" onclick="startExperience()">Start Study 1</button>
-        </div>
+
+    <h1>Study 2</h1>
+    <div class="introduction">
+        <p>The purpose of Study 2 is for you to interact with four different caption prototypes, answer few quiz based on the captions, and do the post-study surveys.</p>
+        <p><b>Prototype 1: Basic Real-Time Captioning</b><br>
+        The first page of the prototype demonstrates a straightforward implementation of real-time captioning. The captions
+        are displayed in a dedicated caption box adjacent to the video feed of the speaker. This setup allows users to read the
+        captions while still being able to observe the speaker’s facial expressions and body language. The text is animated to
+        appear sequentially, simulating a live transcription environment.</p>
+
+        <p><b>Prototype 2: Real-time Caption Overlay on Video Feed</b><br>
+        This prototype introduces a real-time caption overlay on the video feed of the speaker. This ensures that users can read
+        captions while simultaneously accessing the speaker’s facial expressions.</p>
+
+        <p><b>Prototype 3: Enhanced Captioning with Emphasis</b><br>
+        The third page focuses on integrating emotional expressions into the captions. Emotional words are identified and
+        highlighted using color coding to reflect the speaker’s tone (e.g., green for happy, blue for sad). The captions are overlaid
+        on the live video feed, and the text moves upward, similar to real-time scrolling captions seen in live broadcasts.</p>
+
+        <p><b>Prototype 4: Real-time Caption with Emoji and Visualization</b><br>
+        The fourth page explores a more interactive approach by introducing emoji that changes facial expressions and gestures
+        based on the emotional tone of the text.</p>
     </div>
 
-    <div id="video-section-1" class="container">
-        <h1>Chemistry Lecture Video</h1>
-        <p>This recorded video is just an example demonstrating a real-time lecture in a Chemistry class.</p>
-        <p>The idea is to demonstrate how some students need accessibility support to be able to participate in the class.</p>
-        <div>
-            <figure>
-                <video id="video1" width="900" height="800" controls>
-                    <source src="images/matter.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </figure>
-        </div>
-        <h3>You will access the real-time caption for this video lecture on the next page.</h3>
-        <h2 style="font-weight: bold; color: green;">Please WATCH the whole video before proceeding to the next page</h2>
-        <div class="nav-buttons">
-            <button onclick="showPage(2)">Next</button>
-        </div>
+    <div class="navigation">
+        <a href="page1.html">Start</a>
     </div>
-    
-    <div id="video-section-2" class="container">
-        <h1>ASR Captions of the Lecture Video Shown in the Previous Page</h1>
-        <div>
-            <figure>
-                <video id="video2" width="900" height="800" controls>
-                    <source src="images/matterTranscript.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </figure>
-        </div>
-
-        <h2 style="font-weight: bold; color: green;">Please READ the whole transcript before proceeding to the next page</h2>
-
-        <div class="nav-buttons">
-            <button onclick="showPage(1)">Previous</button>    
-            <button onclick="showPage(3)">Next</button>
-        </div>
-    </div>
-
-    <div id="quiz-section" class="container">
-        <h1>Quiz</h1>
-        <p>The following quiz is based on the content covered in the lecture video on page 1 and the corresponding caption on page 2.</p>
-        <p>The purpose of the quiz is to determine comprehension.</p>
-        <div class="quiz-container">
-            <div class="quiz-question">
-                <p>1. Matter is composed of a tiny unit called?</p>
-                <label><input type="radio" name="question1" value="Particle"> Particle</label><br>
-                <label><input type="radio" name="question1" value="Electron"> Electron</label><br>
-                <label><input type="radio" name="question1" value="Atom"> Atom</label><br>
-                <label><input type="radio" name="question1" value="Proton"> Proton</label>
-            </div>
-            <div class="quiz-question">
-                <p>2. Which of the following is an example of matter?</p>
-                <label><input type="radio" name="question2" value="happiness"> Happiness</label><br>
-                <label><input type="radio" name="question2" value="excitement"> Excitement</label><br>
-                <label><input type="radio" name="question2" value="water"> Water</label><br>
-                <label><input type="radio" name="question2" value="space"> Space</label>
-            </div>
-        </div>
-        <div class="nav-buttons">
-            <button id="beginSurveyButton" onclick="submitResponses()">Begin Study 1 Survey</button>
-        </div>
-    </div>
-
-    <script>
-        function startExperience() {
-            document.getElementById('welcome-container').classList.remove('active');
-            document.getElementById('video-section-1').classList.add('active');
-            const video1 = document.getElementById('video1');
-            video1.play();
-        }
-
-        function showPage(pageIndex) {
-            console.log("Button clicked, showing page:", pageIndex);
-            const sections = document.querySelectorAll('.container');
-            sections.forEach((section, index) => {
-                if (index === pageIndex) {
-                    section.classList.add('active');
-                } else {
-                    section.classList.remove('active');
-                }
-            });
-            const video2 = document.getElementById('video2');
-            if (pageIndex === 2 && video2) {
-                video2.play();
-            }
-        }
-
-        async function submitResponses() {
-            const quiz1Response = document.querySelector('input[name="question1"]:checked') ? document.querySelector('input[name="question1"]:checked').value : "No response";
-            const quiz2Response = document.querySelector('input[name="question2"]:checked') ? document.querySelector('input[name="question2"]:checked').value : "No response";
-            const email = 'sundavid7740@gmail.com'; // Or get the email from a form field
-
-            const responses = {
-                email: email,
-                q1: quiz1Response,
-                q2: quiz2Response
-            };
-
-            try {
-                const response = await fetch('submit_responses.php', {
-                    method: 'POST',
-                    body: JSON.stringify(responses),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    const result = await response.json();
-                    if (result.status === 'success') {
-                        window.location.href = 'https://virginiatech.questionpro.com/study1';
-                    } else {
-                        console.error(`Error submitting responses: ${result.message}`);
-                    }
-                } else {
-                    const responseBody = await response.text();
-                    console.error(`Error submitting responses: ${responseBody}`);
-                }
-            } catch (error) {
-                console.error(`Error submitting responses: ${error.message}`);
-            }
-        }
-    </script>
 </body>
 </html>
