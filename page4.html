@@ -40,7 +40,7 @@
         text-align: center;
         color: black;
         font-size: 18px;
-        line-height: 1.5;
+        line-height: 1.0;
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
@@ -67,23 +67,6 @@
         color: red;
         animation: shake 0.5s;
     }
-    .tone-emphasis {
-        font-weight: bold;
-        text-decoration: underline;
-    }
-    .tone-high {
-        font-size: 24px;
-        color: darkorange;
-    }
-    .tone-low {
-        font-size: 14px;
-        color: gray;
-    }
-    .tone-importance {
-        background-color: yellow;
-        font-weight: bold;
-        font-size: 22px;
-    }
     @keyframes shake {
         0% { transform: translateX(0); }
         25% { transform: translateX(-5px); }
@@ -96,6 +79,9 @@
         margin-right: 5px;
         opacity: 0;
         animation: fadeIn 1s forwards;
+    }
+    .caption-text.bold {
+        font-weight: bold;
     }
     @keyframes fadeIn {
         from {
@@ -170,46 +156,20 @@
     const captionsPage4 = textPage4.split(' ').map(word => {
         let emotion = "neutral";
         if (/😊|😄|🙏|🌟|🧪|🌡️|🧬|📚|🔬|🌱|🌍|🌿/.test(word)) emotion = "happy";
-        let tone = "neutral";
-        if (/Introduction|Crucial|Vital|Important/.test(word)) tone = "importance";
-        if (/Understanding|Knowledge/.test(word)) tone = "high";
-        if (/interaction|combine|transform/.test(word)) tone = "emphasis";
-        if (/sub-disciplines|carbon-containing/.test(word)) tone = "low";
-        return { text: word, emotion, tone };
+        return { text: word, emotion };
     });
 
-    function displayCaptionPage4(captionBox, textArray, index = 0, wordsPerLine = 12) {
+    function displayCaptionPage4(captionBox, textArray, index = 0, wordsPerLine = 14) {
         if (index < textArray.length) {
             setTimeout(() => {
-                let line = textArray.slice(index, index + wordsPerLine).map(word => {
-                    let span = document.createElement('span');
-                    span.classList.add('caption-text');
-                    span.textContent = word.text;
+                let line = textArray.slice(index, index + wordsPerLine).map(word => word.text).join(' ');
+                const span = document.createElement('span');
+                span.classList.add('caption-text');
+                span.textContent = line;
 
-                    // Add emotion class based on the detected emotion
-                    if (word.emotion === "happy") {
-                        span.classList.add('emotion-happy');
-                    } else if (word.emotion === "sad") {
-                        span.classList.add('emotion-sad');
-                    } else if (word.emotion === "angry") {
-                        span.classList.add('emotion-angry');
-                    }
-
-                    // Add tone class based on the detected tone
-                    if (word.tone === "importance") {
-                        span.classList.add('tone-importance');
-                    } else if (word.tone === "high") {
-                        span.classList.add('tone-high');
-                    } else if (word.tone === "emphasis") {
-                        span.classList.add('tone-emphasis');
-                    } else if (word.tone === "low") {
-                        span.classList.add('tone-low');
-                    }
-
-                    return span.outerHTML;
-                }).join(' ');
-
-                captionBox.innerHTML = line + '<br>' + captionBox.innerHTML;
+                captionBox.appendChild(span);
+                captionBox.appendChild(document.createElement('br'));
+                captionBox.scrollTop = captionBox.scrollHeight; // Scroll to bottom
 
                 displayCaptionPage4(captionBox, textArray, index + wordsPerLine, wordsPerLine);
             }, 2500); // Adjust the speed of the captions here
@@ -217,7 +177,7 @@
     }
 
     window.onload = () => {
-        displayCaptionPage4(document.getElementById('captionBox4'), captionsPage4, 0, 12);
+        displayCaptionPage4(document.getElementById('captionBox4'), captionsPage4, 0, 14);
 
         // Video stream setup
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
