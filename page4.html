@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -169,7 +170,7 @@
 </div>
 </div>
 <script>
-        const textPage4 = "🌟 Introduction to Chemistry: Chemistry is the 🌟 Introduction to Chemistry: Chemistry is the branch of science that studies the composition, structure, properties, and changes of matter. 🧪 It involves understanding how substances interact, combine, and transform to form new substances. 🌡️ Chemistry is divided into several sub-disciplines, including organic chemistry, inorganic chemistry, physical chemistry, analytical chemistry, and biochemistry. 🧬 Organic chemistry focuses on the study of carbon-containing compounds, while inorganic chemistry deals with inorganic compounds. 📚 Physical chemistry combines principles of physics and chemistry to study the physical properties of molecules, the forces that act upon them, and their interactions. Analytical chemistry involves the analysis of material samples to understand their chemical composition and structure. 🔬 Biochemistry explores the chemical processes within and related to living organisms. 🌱 Chemistry plays a vital role in various industries, including pharmaceuticals, agriculture, environmental science, and materials engineering. 🌍 Recent advancements in chemistry have led to the development of new materials, sustainable energy solutions, and improved analytical techniques. 🌟 Understanding chemistry is crucial for developing new drugs, creating innovative materials, and addressing environmental issues. 🌿 As our knowledge of chemical processes deepens, chemistry will continue to drive scientific and technological progress, contributing to a better understanding of the natural world and the development of solutions to global challenges. 😊 Chemistry is fascinating 😄 and has a profound impact on our daily lives. Let's explore its wonders together! 🙏";
+        const textPage4 = "🌟 Introduction to Chemistry: Chemistry is the branch of science that studies the composition, structure, properties, and changes of matter. 🧪 It involves understanding how substances interact, combine, and transform to form new substances. 🌡️ Chemistry is divided into several sub-disciplines, including organic chemistry, inorganic chemistry, physical chemistry, analytical chemistry, and biochemistry. 🧬 Organic chemistry focuses on the study of carbon-containing compounds, while inorganic chemistry deals with inorganic compounds. 📚 Physical chemistry combines principles of physics and chemistry to study the physical properties of molecules, the forces that act upon them, and their interactions. Analytical chemistry involves the analysis of material samples to understand their chemical composition and structure. 🔬 Biochemistry explores the chemical processes within and related to living organisms. 🌱 Chemistry plays a vital role in various industries, including pharmaceuticals, agriculture, environmental science, and materials engineering. 🌍 Recent advancements in chemistry have led to the development of new materials, sustainable energy solutions, and improved analytical techniques. 🌟 Understanding chemistry is crucial for developing new drugs, creating innovative materials, and addressing environmental issues. 🌿 As our knowledge of chemical processes deepens, chemistry will continue to drive scientific and technological progress, contributing to a better understanding of the natural world and the development of solutions to global challenges. 😊 Chemistry is fascinating 😄 and has a profound impact on our daily lives. Let's explore its wonders together! 🙏";
 
         const captionsPage4 = textPage4.split(' ').map(word => {
             let emotion = "neutral";
@@ -180,24 +181,21 @@
         function displayCaptionPage4(captionBox, textArray, index = 0, wordsPerLine = 14) {
             if (index < textArray.length) {
                 setTimeout(() => {
-                    let line = textArray.slice(index, index + wordsPerLine).map(word => {
-                        let emotionClass = '';
-                        if (word.emotion === 'happy') {
-                            emotionClass = 'emotion-happy';
-                        } else if (word.emotion === 'sad') {
-                            emotionClass = 'emotion-sad';
-                        } else if (word.emotion === 'angry') {
-                            emotionClass = 'emotion-angry';
-                        }
-                        const span = document.createElement('span');
-                        span.classList.add('caption-text', emotionClass);
-                        span.textContent = word.text;
-                        return span.outerHTML;
-                    }).join(' ');
+                    let line = textArray.slice(index, index + wordsPerLine).map(word => word.text).join(' ');
+                    const span = document.createElement('span');
+                    span.classList.add('caption-text');
+                    span.textContent = line;
 
-                    const div = document.createElement('div');
-                    div.innerHTML = line;
-                    captionBox.appendChild(div);
+                    // Add emotion class based on the detected emotion
+                    if (textArray[index].emotion === "happy") {
+                        span.classList.add('emotion-happy');
+                    } else if (textArray[index].emotion === "sad") {
+                        span.classList.add('emotion-sad');
+                    } else if (textArray[index].emotion === "angry") {
+                        span.classList.add('emotion-angry');
+                    }
+
+                    captionBox.appendChild(span);
                     captionBox.appendChild(document.createElement('br'));
                     captionBox.scrollTop = captionBox.scrollHeight; // Scroll to bottom
 
@@ -219,7 +217,6 @@
             }
         };
 
-      
     </script>   
 <!--<a href="page5.html"><button type="button">Next</button></a></body> -->
 </html>
