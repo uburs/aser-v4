@@ -28,6 +28,7 @@
         }
         .container.active {
             display: flex;
+            flex-direction: column-reverse;
         }
         .caption-box {
             width: 100%;
@@ -188,12 +189,8 @@
             <!-- Captions will appear here -->
         </div>
         <div class="navigation">
-
-          
            <a href="page2.html"><button id="previous3">Previous</button></a>    
             <a href="page4.html"><button id="next3">Next</button></a>   
-        
-            
             <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype3'">Begin Prototype 3 Survey</button>
         </div>
     </div>
@@ -223,9 +220,9 @@
                         return span;
                     });
         
-                    line.forEach(span => captionBox.appendChild(span));
-                    captionBox.appendChild(document.createElement('br'));
-                    captionBox.scrollTop = captionBox.scrollHeight; // Scroll to bottom
+                    line.forEach(span => captionBox.insertBefore(span, captionBox.firstChild));
+                    captionBox.insertBefore(document.createElement('br'), captionBox.firstChild);
+                    captionBox.scrollTop = 0; // Scroll to top
         
                     displayCaption(captionBox, textArray, index + wordsPerLine, wordsPerLine);
                 }, 3500); // Adjust the speed of the captions here
