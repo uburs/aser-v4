@@ -28,16 +28,17 @@
         }
         .container.active {
             display: flex;
-            flex-direction: column-reverse;
         }
         .caption-box {
             width: 100%;
             padding: 20px;
-            overflow-y: auto;
+            overflow-y: hidden;
             font-size: 18px;
             line-height: 1.5;
             background: #fff;
             text-align: center;
+            display: flex;
+            flex-direction: column-reverse;
         }
         .emotion-happy {
             color: green;
@@ -220,9 +221,12 @@
                         return span;
                     });
         
-                    line.forEach(span => captionBox.insertBefore(span, captionBox.firstChild));
-                    captionBox.insertBefore(document.createElement('br'), captionBox.firstChild);
-                    captionBox.scrollTop = 0; // Scroll to top
+                    const lineDiv = document.createElement('div');
+                    lineDiv.style.display = 'flex';
+                    lineDiv.style.flexDirection = 'row';
+                    line.forEach(span => lineDiv.appendChild(span));
+                    captionBox.insertBefore(lineDiv, captionBox.firstChild);
+                    captionBox.scrollTop = captionBox.scrollHeight; // Scroll to bottom
         
                     displayCaption(captionBox, textArray, index + wordsPerLine, wordsPerLine);
                 }, 3500); // Adjust the speed of the captions here
