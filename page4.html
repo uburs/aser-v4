@@ -72,14 +72,17 @@
             text-decoration: underline;
         }
         .tone-high {
-            font-size: 20px;
+            font-size: 24px;
+            color: darkorange;
         }
         .tone-low {
-            font-size: 16px;
+            font-size: 14px;
             color: gray;
         }
         .tone-importance {
             background-color: yellow;
+            font-weight: bold;
+            font-size: 22px;
         }
         @keyframes shake {
             0% { transform: translateX(0); }
@@ -93,9 +96,6 @@
             margin-right: 5px;
             opacity: 0;
             animation: fadeIn 1s forwards;
-        }
-        .caption-text.bold {
-            font-weight: bold;
         }
         @keyframes fadeIn {
             from {
@@ -200,33 +200,35 @@
         function displayCaptionPage4(captionBox, textArray, index = 0, wordsPerLine = 14) {
             if (index < textArray.length) {
                 setTimeout(() => {
-                    let line = textArray.slice(index, index + wordsPerLine).map(word => word.text).join(' ');
-                    const span = document.createElement('span');
-                    span.classList.add('caption-text');
-                    span.textContent = line;
+                    let line = textArray.slice(index, index + wordsPerLine).map(word => {
+                        let span = document.createElement('span');
+                        span.classList.add('caption-text');
+                        span.textContent = word.text;
 
-                    // Add emotion class based on the detected emotion
-                    if (textArray[index].emotion === "happy") {
-                        span.classList.add('emotion-happy');
-                    } else if (textArray[index].emotion === "sad") {
-                        span.classList.add('emotion-sad');
-                    } else if (textArray[index].emotion === "angry") {
-                        span.classList.add('emotion-angry');
-                    }
+                        // Add emotion class based on the detected emotion
+                        if (word.emotion === "happy") {
+                            span.classList.add('emotion-happy');
+                        } else if (word.emotion === "sad") {
+                            span.classList.add('emotion-sad');
+                        } else if (word.emotion === "angry") {
+                            span.classList.add('emotion-angry');
+                        }
 
-                    // Add tone class based on the detected tone
-                    if (textArray[index].tone === "importance") {
-                        span.classList.add('tone-importance');
-                    } else if (textArray[index].tone === "high") {
-                        span.classList.add('tone-high');
-                    } else if (textArray[index].tone === "emphasis") {
-                        span.classList.add('tone-emphasis');
-                    } else if (textArray[index].tone === "low") {
-                        span.classList.add('tone-low');
-                    }
+                        // Add tone class based on the detected tone
+                        if (word.tone === "importance") {
+                            span.classList.add('tone-importance');
+                        } else if (word.tone === "high") {
+                            span.classList.add('tone-high');
+                        } else if (word.tone === "emphasis") {
+                            span.classList.add('tone-emphasis');
+                        } else if (word.tone === "low") {
+                            span.classList.add('tone-low');
+                        }
 
-                    captionBox.appendChild(span);
-                    captionBox.appendChild(document.createElement('br'));
+                        return span.outerHTML;
+                    }).join(' ');
+
+                    captionBox.innerHTML += line + '<br>';
                     captionBox.scrollTop = captionBox.scrollHeight; // Scroll to bottom
 
                     displayCaptionPage4(captionBox, textArray, index + wordsPerLine, wordsPerLine);
