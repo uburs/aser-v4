@@ -67,6 +67,20 @@
             color: red;
             animation: shake 0.5s;
         }
+        .tone-emphasis {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .tone-high {
+            font-size: 20px;
+        }
+        .tone-low {
+            font-size: 16px;
+            color: gray;
+        }
+        .tone-importance {
+            background-color: yellow;
+        }
         @keyframes shake {
             0% { transform: translateX(0); }
             25% { transform: translateX(-5px); }
@@ -175,7 +189,12 @@
         const captionsPage4 = textPage4.split(' ').map(word => {
             let emotion = "neutral";
             if (/😊|😄|🙏|🌟|🧪|🌡️|🧬|📚|🔬|🌱|🌍|🌿/.test(word)) emotion = "happy";
-            return { text: word, emotion };
+            let tone = "neutral";
+            if (/Introduction|Crucial|Vital|Important/.test(word)) tone = "importance";
+            if (/Understanding|Knowledge/.test(word)) tone = "high";
+            if (/interaction|combine|transform/.test(word)) tone = "emphasis";
+            if (/sub-disciplines|carbon-containing/.test(word)) tone = "low";
+            return { text: word, emotion, tone };
         });
 
         function displayCaptionPage4(captionBox, textArray, index = 0, wordsPerLine = 14) {
@@ -193,6 +212,17 @@
                         span.classList.add('emotion-sad');
                     } else if (textArray[index].emotion === "angry") {
                         span.classList.add('emotion-angry');
+                    }
+
+                    // Add tone class based on the detected tone
+                    if (textArray[index].tone === "importance") {
+                        span.classList.add('tone-importance');
+                    } else if (textArray[index].tone === "high") {
+                        span.classList.add('tone-high');
+                    } else if (textArray[index].tone === "emphasis") {
+                        span.classList.add('tone-emphasis');
+                    } else if (textArray[index].tone === "low") {
+                        span.classList.add('tone-low');
                     }
 
                     captionBox.appendChild(span);
