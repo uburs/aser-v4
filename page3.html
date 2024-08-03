@@ -38,17 +38,6 @@
             background: #fff;
             text-align: center;
         }
-        .quiz-container {
-            order: 3;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
         .emotion-happy {
             color: green;
         }
@@ -66,6 +55,42 @@
             75% { transform: translateX(-5px); }
             100% { transform: translateX(0); }
         }
+        .emotion-excited {
+            color: orange;
+            animation: enlargeText 0.5s forwards;
+        }
+        .emotion-calm {
+            color: lightblue;
+            transition: color 1s;
+        }
+        .emotion-questioning {
+            color: purple;
+            font-style: italic;
+            transform: rotate(-5deg);
+        }
+        .emotion-surprised {
+            color: gold;
+            animation: popEffect 0.5s forwards;
+        }
+        @keyframes enlargeText {
+            from {
+                font-size: 18px;
+            }
+            to {
+                font-size: 24px;
+            }
+        }
+        @keyframes popEffect {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
         .caption-text {
             display: inline-block;
             margin-right: 5px;
@@ -74,7 +99,7 @@
         }
         .caption-text.bold {
             font-weight: bold;
-            color: darkblue; /* Highlighting the bold text in dark blue */
+            color: darkblue;
             animation: enlargeText 1s forwards, fadeIn 1s forwards;
         }
         @keyframes fadeIn {
@@ -83,14 +108,6 @@
             }
             to {
                 opacity: 1;
-            }
-        }
-        @keyframes enlargeText {
-            from {
-                font-size: 18px;
-            }
-            to {
-                font-size: 24px;
             }
         }
         .caption-overlay {
@@ -184,9 +201,17 @@
         const textPage3 = "Introduction to Biology: Biology is the scientific study of life and living organisms. It encompasses a wide range of fields, including <b>genetics</b>, <b>microbiology</b>, <b>ecology</b>, and <b>physiology</b>. Biologists explore the structure, function, growth, origin, evolution, and distribution of living organisms. <b>Genetics</b> focuses on the heredity and variation of organisms, while <b>microbiology</b> studies microscopic organisms such as bacteria, viruses, and fungi. <b>Ecology</b> examines the interactions of organisms with their environment, and <b>physiology</b> explores the functions and mechanisms within living systems. Modern biology is increasingly interdisciplinary, combining principles from <b>chemistry</b>, <b>physics</b>, and <b>mathematics</b> to understand complex biological systems. Recent advancements in <b>biotechnology</b> and <b>genomics</b> have revolutionized the field, leading to significant breakthroughs in <b>medicine</b>, <b>agriculture</b>, and <b>environmental conservation</b>. Understanding biology is essential for addressing global challenges such as <b>disease outbreaks</b>, <b>environmental degradation</b>, and <b>food security</b>. By studying biology, scientists can develop new treatments for diseases, enhance crop yields, and protect endangered species. As our knowledge of biological processes expands, biology will continue to play a crucial role in improving human health and preserving the natural world. Pursuing a career in biology can be immensely rewarding and exciting. Studying biology teaches you to ask questions, make detailed observations, evaluate evidence, and solve problems. Biologists study the evolution, natural history, and conservation of plants and animals; investigate the interactions of living organisms with light, the environment, or each other; and work to advance pharmaceuticals, biotechnology, and medical research. Studying biology can lead to a wide range of careers, from research to teaching, health care to policymaking.";
         
         const captionsPage3 = textPage3.split(' ').map(word => {
-            return { text: word.replace(/<b>|<\/b>/g, ''), emotion: "neutral", bold: /<b>/.test(word) };
+            return { text: word.replace(/<b>|<\/b>/g, ''), emotion: getEmotion(word), bold: /<b>/.test(word) };
         });
-        
+
+        function getEmotion(word) {
+            if (/genetics|microbiology|ecology|physiology/.test(word)) return 'excited';
+            if (/biology|biologists|biological/.test(word)) return 'calm';
+            if (/explore|focuses|studies/.test(word)) return 'questioning';
+            if (/advancements|breakthroughs/.test(word)) return 'surprised';
+            return 'neutral';
+        }
+
         function displayCaption(captionBox, textArray, index = 0, wordsPerLine = 15) {
             if (index < textArray.length) {
                 setTimeout(() => {
@@ -203,7 +228,7 @@
                     captionBox.scrollTop = captionBox.scrollHeight; // Scroll to bottom
         
                     displayCaption(captionBox, textArray, index + wordsPerLine, wordsPerLine);
-                }, 3000); // Adjust the speed of the captions here
+                }, 3500); // Adjust the speed of the captions here
             }
         }
         
