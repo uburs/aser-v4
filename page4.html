@@ -40,7 +40,7 @@
             text-align: center;
             color: black;
             font-size: 18px;
-            line-height: 1.0;
+            line-height: 1.5;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -197,7 +197,7 @@
             return { text: word, emotion, tone };
         });
 
-        function displayCaptionPage4(captionBox, textArray, index = 0, wordsPerLine = 14) {
+        function displayCaptionPage4(captionBox, textArray, index = 0, wordsPerLine = 10) {
             if (index < textArray.length) {
                 setTimeout(() => {
                     let line = textArray.slice(index, index + wordsPerLine).map(word => {
@@ -237,7 +237,7 @@
         }
 
         window.onload = () => {
-            displayCaptionPage4(document.getElementById('captionBox4'), captionsPage4, 0, 14);
+            displayCaptionPage4(document.getElementById('captionBox4'), captionsPage4, 0, 10);
 
             // Video stream setup
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
