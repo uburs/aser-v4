@@ -165,30 +165,23 @@
             font-weight: bold;
             text-align: center;
         }
-        .introduction {
-            text-align: center;
-            margin-bottom: 20px;
-        }
     </style>
 </head>
 <body>
     <div class="heading">Caption Prototype 1</div>
     <p>Normal caption and speaker live video</p>
-    <div id="introPage" class="introduction">
-        <p><b>Prototype 1: Basic Real-Time Captioning</b><br>
-        The first page of the prototype demonstrates a straightforward implementation of real-time captioning. The captions are displayed in a dedicated caption box adjacent to the video feed of the speaker. This setup allows users to read the captions while still being able to observe the speaker’s facial expressions and body language. The text is animated to appear sequentially, simulating a live transcription environment.</p>
-        <button id="beginStudy">Begin Study</button>
-    </div>
-    <div id="page1" class="container">
+    <div id="page1" class="container active">
         <div class="video-box">
-            <video id="video1" src="images/introComputing.mp4" controls></video>
+            <video id="video1" src="images/introComputing.mp4" controls autoplay></video>
         </div>
         <div class="caption-box" id="captionBox1">
             <!-- Captions will appear here -->
         </div>
 
         <div class="navigation">
-            <a href="page2.html"><button id="next1">Next</button></a>
+
+            <a href="page2.html"><button id="next1">Next</button></a>  
+
             <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype1'">Begin Prototype 1 Survey</button>
         </div>
     </div>
@@ -216,18 +209,10 @@
             }
         }
 
-        document.getElementById('beginStudy').onclick = () => {
-            document.getElementById('introPage').style.display = 'none';
-            document.getElementById('page1').classList.add('active');
-            const video = document.getElementById('video1');
-            video.play();
-            video.volume = 0.35; // Set the volume to 35%
-            displayCaption(document.getElementById('captionBox1'), captionsPage1, 0, 13);
-        };
-
         window.onload = () => {
             const video = document.getElementById('video1');
-            video.volume = 0.35; // Set the volume to 35%
+            video.volume = 0.20; // Set the volume to 35%
+            displayCaption(document.getElementById('captionBox1'), captionsPage1, 0, 13);
         };
     </script>
 </body>
