@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -91,6 +90,33 @@
                 opacity: 1;
             }
         }
+        video {
+            width: 80%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .emotion-detection-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            overflow-y: hidden;
+            padding: 20px;
+            text-align: center;
+            color: black;
+            font-size: 18px;
+            line-height: 1.0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            pointer-events: none;
+        }
+        .emotion-text {
+            display: inline-block;
+            margin-right: 5px;
+            animation: moveUp 10s linear infinite;
+        }
         @keyframes moveUp {
             from {
                 transform: translateY(100%);
@@ -98,34 +124,6 @@
             to {
                 transform: translateY(-100%);
             }
-        }
-        @keyframes popEffect {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.5);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-        .emotion-happy {
-            color: green;
-            animation: popEffect 0.5s forwards;
-        }
-        .emotion-sad {
-            color: blue;
-            transition: color 1s;
-        }
-        .emotion-questioning {
-            color: purple;
-            font-style: italic;
-            transform: rotate(-5deg);
-        }
-        .emotion-surprised {
-            color: gold;
-            animation: popEffect 0.5s forwards;
         }
         .navigation {
             position: absolute;
@@ -171,7 +169,7 @@
 </div>
 </div>
 <script>
-        const textPage4 = "🌟 Introduction to Chemistry: Chemistry is the branch of science that studies the composition, structure, properties, and changes of matter. 🧪 It involves understanding how substances interact, combine, and transform to form new substances. 🌡️ Chemistry is divided into several sub-disciplines, including organic chemistry, inorganic chemistry, physical chemistry, analytical chemistry, and biochemistry. 🧬 Organic chemistry focuses on the study of carbon-containing compounds, while inorganic chemistry deals with inorganic compounds. 📚 Physical chemistry combines principles of physics and chemistry to study the physical properties of molecules, the forces that act upon them, and their interactions. Analytical chemistry involves the analysis of material samples to understand their chemical composition and structure. 🔬 Biochemistry explores the chemical processes within and related to living organisms. 🌱 Chemistry plays a vital role in various industries, including pharmaceuticals, agriculture, environmental science, and materials engineering. 🌍 Recent advancements in chemistry have led to the development of new materials, sustainable energy solutions, and improved analytical techniques. 🌟 Understanding chemistry is crucial for developing new drugs, creating innovative materials, and addressing environmental issues. 🌿 As our knowledge of chemical processes deepens, chemistry will continue to drive scientific and technological progress, contributing to a better understanding of the natural world and the development of solutions to global challenges. 😊 Chemistry is fascinating 😄 and has a profound impact on our daily lives. Let's explore its wonders together! 🙏";
+        const textPage4 = "🌟 Introduction to Chemistry: Chemistry is the 🌟 Introduction to Chemistry: Chemistry is the branch of science that studies the composition, structure, properties, and changes of matter. 🧪 It involves understanding how substances interact, combine, and transform to form new substances. 🌡️ Chemistry is divided into several sub-disciplines, including organic chemistry, inorganic chemistry, physical chemistry, analytical chemistry, and biochemistry. 🧬 Organic chemistry focuses on the study of carbon-containing compounds, while inorganic chemistry deals with inorganic compounds. 📚 Physical chemistry combines principles of physics and chemistry to study the physical properties of molecules, the forces that act upon them, and their interactions. Analytical chemistry involves the analysis of material samples to understand their chemical composition and structure. 🔬 Biochemistry explores the chemical processes within and related to living organisms. 🌱 Chemistry plays a vital role in various industries, including pharmaceuticals, agriculture, environmental science, and materials engineering. 🌍 Recent advancements in chemistry have led to the development of new materials, sustainable energy solutions, and improved analytical techniques. 🌟 Understanding chemistry is crucial for developing new drugs, creating innovative materials, and addressing environmental issues. 🌿 As our knowledge of chemical processes deepens, chemistry will continue to drive scientific and technological progress, contributing to a better understanding of the natural world and the development of solutions to global challenges. 😊 Chemistry is fascinating 😄 and has a profound impact on our daily lives. Let's explore its wonders together! 🙏";
 
         const captionsPage4 = textPage4.split(' ').map(word => {
             let emotion = "neutral";
@@ -183,13 +181,23 @@
             if (index < textArray.length) {
                 setTimeout(() => {
                     let line = textArray.slice(index, index + wordsPerLine).map(word => {
+                        let emotionClass = '';
+                        if (word.emotion === 'happy') {
+                            emotionClass = 'emotion-happy';
+                        } else if (word.emotion === 'sad') {
+                            emotionClass = 'emotion-sad';
+                        } else if (word.emotion === 'angry') {
+                            emotionClass = 'emotion-angry';
+                        }
                         const span = document.createElement('span');
-                        span.classList.add('caption-text', `emotion-${word.emotion}`);
+                        span.classList.add('caption-text', emotionClass);
                         span.textContent = word.text;
-                        return span;
-                    });
-                    
-                    line.forEach(span => captionBox.appendChild(span));
+                        return span.outerHTML;
+                    }).join(' ');
+
+                    const div = document.createElement('div');
+                    div.innerHTML = line;
+                    captionBox.appendChild(div);
                     captionBox.appendChild(document.createElement('br'));
                     captionBox.scrollTop = captionBox.scrollHeight; // Scroll to bottom
 
@@ -204,7 +212,7 @@
             // Video stream setup
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                 navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-                    document.getElementById('video4').srcObject = stream;
+                    document.getElementById('video3').srcObject = stream;
                 }).catch(function(error) {
                     console.error("Error accessing webcam: ", error);
                 });
