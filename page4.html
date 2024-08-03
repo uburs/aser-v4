@@ -165,6 +165,13 @@
                 let line = textArray.slice(index, index + wordsPerLine).map(word => word.text).join(' ');
                 const span = document.createElement('span');
                 span.classList.add('caption-text');
+                if (textArray[index].emotion === 'happy') {
+                    span.classList.add('emotion-happy');
+                } else if (textArray[index].emotion === 'sad') {
+                    span.classList.add('emotion-sad');
+                } else if (textArray[index].emotion === 'angry') {
+                    span.classList.add('emotion-angry');
+                }
                 span.textContent = line;
 
                 captionBox.insertBefore(document.createElement('br'), captionBox.firstChild);
