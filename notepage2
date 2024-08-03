@@ -16,7 +16,7 @@
             margin: 0;
         }
         .container {
-            display: none;
+            display: flex;
             flex-direction: column;
             width: 90%;
             height: 80%;
@@ -26,9 +26,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             position: relative;
-        }
-        .container.active {
-            display: flex;
         }
         .content {
             display: flex;
@@ -110,30 +107,25 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .introduction {
-            text-align: center;
-            margin-bottom: 20px;
-        }
     </style>
 </head>
 <body>
     <div class="heading">Caption Prototype 2</div>
-    <div id="introPage" class="introduction">
-        <p><b>Prototype 2: Speaker Live Video with Caption Overlay</b><br>
-        <button id="beginStudy">Begin Study</button>
-    </div>
-    <div id="page2" class="container">
+    <p>Speaker live video with caption overlay</p>
+    <div id="page2" class="container active">
         <div class="content">
             <div class="video-box">
-                <video id="video2" src="images/engineering.mp4" controls></video>
+                <video id="video2" src="images/engineering.mp4" controls autoplay style="width: 100%; height: 100%; object-fit: cover;"></video>
                 <div class="caption-overlay" id="captionBox2">
                     <!-- Captions will appear here -->
                 </div>
             </div>
         </div>
         <div class="navigation">
-            <a href="page1.html"><button id="previous2">Previous</button></a>
-            <a href="page3.html"><button id="next2">Next</button></a>
+            
+            <a href="page1.html"><button id="previous2">Previous</button></a>     
+            <a href="page3.html"><button id="next2">Next</button></a>  
+        
             <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype2'">Begin Prototype 2 Survey</button>
         </div>
     </div>
@@ -159,18 +151,10 @@
             }
         }
         
-        document.getElementById('beginStudy').onclick = () => {
-            document.getElementById('introPage').style.display = 'none';
-            document.getElementById('page2').classList.add('active');
-            const video = document.getElementById('video2');
-            video.play();
-            video.volume = 0.35; // Set the volume to 35%
-            displayCaptionPage2(document.getElementById('captionBox2'), captionsPage2, 0, 13);
-        };
-        
         window.onload = () => {
             const video = document.getElementById('video2');
-            video.volume = 0.35; // Set the volume to 35%
+            video.volume = 0.20; // Set the volume to 35%
+            displayCaptionPage2(document.getElementById('captionBox2'), captionsPage2, 0, 13);
         };
     </script>
 </body>
