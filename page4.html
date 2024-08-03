@@ -67,15 +67,6 @@
         color: red;
         animation: shake 0.5s;
     }
-    .tone-importance {
-        background-color: yellow;
-        font-weight: bold;
-        font-size: 22px;
-    }
-    .tone-emphasis {
-        font-weight: bold;
-        text-decoration: underline;
-    }
     @keyframes shake {
         0% { transform: translateX(0); }
         25% { transform: translateX(-5px); }
@@ -165,41 +156,19 @@
     const captionsPage4 = textPage4.split(' ').map(word => {
         let emotion = "neutral";
         if (/😊|😄|🙏|🌟|🧪|🌡️|🧬|📚|🔬|🌱|🌍|🌿/.test(word)) emotion = "happy";
-        let tone = "neutral";
-        if (/Introduction|Crucial|Vital|Important/.test(word)) tone = "importance";
-        if (/understanding|combine|transform/.test(word)) tone = "emphasis";
-        return { text: word, emotion, tone };
+        return { text: word, emotion };
     });
 
     function displayCaptionPage4(captionBox, textArray, index = 0, wordsPerLine = 14) {
         if (index < textArray.length) {
             setTimeout(() => {
-                let line = textArray.slice(index, index + wordsPerLine).map(word => {
-                    let span = document.createElement('span');
-                    span.classList.add('caption-text');
-                    span.textContent = word.text;
-
-                    // Add emotion class based on the detected emotion
-                    if (word.emotion === "happy") {
-                        span.classList.add('emotion-happy');
-                    } else if (word.emotion === "sad") {
-                        span.classList.add('emotion-sad');
-                    } else if (word.emotion === "angry") {
-                        span.classList.add('emotion-angry');
-                    }
-
-                    // Add tone class based on the detected tone
-                    if (word.tone === "importance") {
-                        span.classList.add('tone-importance');
-                    } else if (word.tone === "emphasis") {
-                        span.classList.add('tone-emphasis');
-                    }
-
-                    return span.outerHTML;
-                }).join(' ');
+                let line = textArray.slice(index, index + wordsPerLine).map(word => word.text).join(' ');
+                const span = document.createElement('span');
+                span.classList.add('caption-text');
+                span.textContent = line;
 
                 captionBox.insertBefore(document.createElement('br'), captionBox.firstChild);
-                captionBox.insertBefore(document.createRange().createContextualFragment(line), captionBox.firstChild);
+                captionBox.insertBefore(span, captionBox.firstChild);
                 captionBox.scrollTop = captionBox.scrollHeight; // Scroll to bottom
 
                 displayCaptionPage4(captionBox, textArray, index + wordsPerLine, wordsPerLine);
