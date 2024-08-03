@@ -167,8 +167,8 @@
                 span.classList.add('caption-text');
                 span.textContent = line;
 
-                captionBox.appendChild(span);
-                captionBox.appendChild(document.createElement('br'));
+                captionBox.insertBefore(document.createElement('br'), captionBox.firstChild);
+                captionBox.insertBefore(span, captionBox.firstChild);
                 captionBox.scrollTop = captionBox.scrollHeight; // Scroll to bottom
 
                 displayCaptionPage4(captionBox, textArray, index + wordsPerLine, wordsPerLine);
@@ -189,7 +189,5 @@
         }
     };
 </script>
-<!--<a href="page5.html"><button type="button">Next</button></a>-->
 </body>
 </html>
-
