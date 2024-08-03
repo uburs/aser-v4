@@ -136,6 +136,14 @@
         font-weight: bold;
         text-align: center;
     }
+    .high-pitch {
+        color: #FF4500;
+        font-weight: bold;
+    }
+    .low-pitch {
+        color: #1E90FF;
+        font-style: italic;
+    }
 </style>
 </head>
 <body>
@@ -156,6 +164,8 @@
     const captionsPage4 = textPage4.split(' ').map(word => {
         let emotion = "neutral";
         if (/😊|😄|🙏|🌟|🧪|🌡️|🧬|📚|🔬|🌱|🌍|🌿/.test(word)) emotion = "happy";
+        if (word === "Chemistry") word = '<span class="high-pitch">Chemistry</span>';
+        if (word === "science") word = '<span class="low-pitch">science</span>';
         return { text: word, emotion };
     });
 
@@ -165,7 +175,7 @@
                 let line = textArray.slice(index, index + wordsPerLine).map(word => word.text).join(' ');
                 const span = document.createElement('span');
                 span.classList.add('caption-text');
-                span.textContent = line;
+                span.innerHTML = line; // Use innerHTML to include the span tags
 
                 captionBox.insertBefore(document.createElement('br'), captionBox.firstChild);
                 captionBox.insertBefore(span, captionBox.firstChild);
