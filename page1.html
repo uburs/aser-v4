@@ -186,10 +186,7 @@
         </div>
 
         <div class="navigation">
-
-          <!-- <a href="page2.html"><button id="next1">Next</button></a>  -->
-
-            <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype1'">Begin Prototype 1 Survey</button>
+            <button id="surveyButton" disabled onclick="window.location.href='https://virginiatech.questionpro.com/prototype1'">Begin Prototype 1 Survey</button>
         </div>
     </div>
     <script>
@@ -221,13 +218,17 @@
             document.getElementById('page1').classList.add('active');
             const video = document.getElementById('video1');
             video.play();
-            video.volume = 0.40; // Set the volume to 35%
+            video.volume = 0.40; // Set the volume to 40%
             displayCaption(document.getElementById('captionBox1'), captionsPage1, 0, 13);
+            
+            video.addEventListener('ended', () => {
+                document.getElementById('surveyButton').disabled = false;
+            });
         };
 
         window.onload = () => {
             const video = document.getElementById('video1');
-            video.volume = 0.40; // Set the volume to 35%
+            video.volume = 0.40; // Set the volume to 40%
         };
     </script>
 </body>
