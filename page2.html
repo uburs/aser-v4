@@ -33,11 +33,10 @@
         .content {
             display: flex;
             flex: 1;
-            position: relative;
         }
         .video-box {
             width: 70%;
-            margin-left: 5%;
+            margin-left: 10%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -72,14 +71,20 @@
             align-items: center;
             box-shadow: none; /* Remove any shadow */
         }
-        .navigation {
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-start;
-            position: absolute;
-            right: 0;
-            top: 0;
+        .quiz-container {
+            width: 30%;
             padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+        .navigation {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
         button {
             padding: 10px 20px;
@@ -88,9 +93,11 @@
             background-color: rgba(65, 125, 45, 0.941);
         }
         #surveyButton {
-            padding: 10px 18px;
-            font-size: 18px;
+            padding: 5px 10px;
+            font-size: 14px;
             background-color: rgb(198, 205, 125);
+            margin-left: auto;
+            display: none;
         }
         .heading {
             margin-bottom: 20px;
@@ -124,9 +131,9 @@
                     <!-- Captions will appear here -->
                 </div>
             </div>
-            <div class="navigation">
-                <button id="surveyButton" disabled onclick="window.location.href='https://virginiatech.questionpro.com/prototype2'">Begin Prototype 2 Survey</button>
-            </div>
+        </div>
+        <div class="navigation">
+            <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype2'">Begin Prototype 2 Survey</button>
         </div>
     </div>
     <script>
@@ -156,17 +163,16 @@
             document.getElementById('page2').classList.add('active');
             const video = document.getElementById('video2');
             video.play();
-            video.volume = 0.20; // Set the volume to 20%
+            video.volume = 0.45; // Set the volume to 45%
             displayCaptionPage2(document.getElementById('captionBox2'), captionsPage2, 0, 13);
-            
-            video.addEventListener('ended', () => {
-                document.getElementById('surveyButton').disabled = false;
-            });
         };
         
         window.onload = () => {
             const video = document.getElementById('video2');
-            video.volume = 0.35; // Set the volume to 35%
+            video.volume = 0.45; // Set the volume to 45%
+            video.onended = () => {
+                document.getElementById('surveyButton').style.display = 'block';
+            };
         };
     </script>
 </body>
