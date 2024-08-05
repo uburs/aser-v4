@@ -97,6 +97,8 @@
             font-size: 18px;
             background-color: rgb(198, 205, 125);
             margin-left: auto;
+            cursor: not-allowed;
+            opacity: 0.5;
         }
         .heading {
             margin-bottom: 20px;
@@ -132,11 +134,7 @@
             </div>
         </div>
         <div class="navigation">
-            <!--
-            <a href="page1.html"><button id="previous2">Previous</button></a>
-            <a href="page3.html"><button id="next2">Next</button></a>  
-        -->
-            <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype2'">Begin Prototype 2 Survey</button>
+            <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype2'" disabled>Begin Prototype 2 Survey</button>
         </div>
     </div>
     <script>
@@ -173,6 +171,12 @@
         window.onload = () => {
             const video = document.getElementById('video2');
             video.volume = 0.45; // Set the volume to 35%
+            video.onended = () => {
+                const surveyButton = document.getElementById('surveyButton');
+                surveyButton.disabled = false;
+                surveyButton.style.cursor = 'pointer';
+                surveyButton.style.opacity = '1';
+            };
         };
     </script>
 </body>
