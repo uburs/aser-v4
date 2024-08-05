@@ -174,6 +174,8 @@
             font-size: 18px;
             background-color: rgb(198, 205, 125);
             margin-left: auto;
+            cursor: not-allowed;
+            opacity: 0.5;
         }
         .heading {
             margin-bottom: 20px;
@@ -195,7 +197,7 @@
            <a href="page2.html"><button id="previous3">Previous</button></a>    
             <a href="page4.html"><button id="next3">Next</button></a>   
         -->
-            <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype3'">Begin Prototype 3 Survey</button>
+            <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype3'" disabled>Begin Prototype 3 Survey</button>
         </div>
     </div>
     <script>
@@ -238,6 +240,13 @@
         
         window.onload = () => {
             displayCaption(document.getElementById('captionBox3'), captionsPage3, 0, 15);
+
+            setTimeout(() => {
+                const surveyButton = document.getElementById('surveyButton');
+                surveyButton.disabled = false;
+                surveyButton.style.cursor = 'pointer';
+                surveyButton.style.opacity = '1';
+            }, 52000); // Enable after 52 seconds
         };
     </script>
 </body>
