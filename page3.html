@@ -173,9 +173,9 @@
             padding: 10px 18px;
             font-size: 18px;
             background-color: rgb(198, 205, 125);
-            margin-left: auto;
             cursor: not-allowed;
             opacity: 0.5;
+            margin-top: 20px;
         }
         .heading {
             margin-bottom: 20px;
@@ -197,9 +197,9 @@
            <a href="page2.html"><button id="previous3">Previous</button></a>    
             <a href="page4.html"><button id="next3">Next</button></a>   
         -->
-            <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype3'" disabled>Begin Prototype 3 Survey</button>
         </div>
     </div>
+    <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype3'" disabled>Begin Prototype 3 Survey</button>
     <h3>Please note that the survey button will only become active once the caption has finished.</h3>
     <script>
         const textPage3 = "Introduction to Biology: Biology is the scientific study of life and living organisms. It encompasses a wide range of fields, including <b>genetics</b>, <b>microbiology</b>, <b>ecology</b>, and <b>physiology</b>. Biologists explore the structure, function, growth, origin, evolution, and distribution of living organisms. <b>Genetics</b> focuses on the heredity and variation of organisms, while <b>microbiology</b> studies microscopic organisms such as bacteria, viruses, and fungi. <b>Ecology</b> examines the interactions of organisms with their environment, and <b>physiology</b> explores the functions and mechanisms within living systems. Modern biology is increasingly interdisciplinary, combining principles from <b>chemistry</b>, <b>physics</b>, and <b>mathematics</b> to understand complex biological systems. Recent advancements in <b>biotechnology</b> and <b>genomics</b> have revolutionized the field, leading to significant breakthroughs in <b>medicine</b>, <b>agriculture</b>, and <b>environmental conservation</b>. Understanding biology is essential for addressing global challenges such as <b>disease outbreaks</b>, <b>environmental degradation</b>, and <b>food security</b>. By studying biology, scientists can develop new treatments for diseases, enhance crop yields, and protect endangered species. As our knowledge of biological processes expands, biology will continue to play a crucial role in improving human health and preserving the natural world.";
@@ -247,7 +247,7 @@
                 surveyButton.disabled = false;
                 surveyButton.style.cursor = 'pointer';
                 surveyButton.style.opacity = '1';
-            }, 60000); // Enable after 52 seconds
+            }, 60000); // Enable after 60 seconds
         };
     </script>
 </body>
