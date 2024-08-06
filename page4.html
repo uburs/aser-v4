@@ -152,7 +152,7 @@
         return { text: word, emotion };
     });
 
-    function displayCaptionPage4(captionBox, textArray, index = 0, wordsPerLine = 12) {
+    function displayCaptionPage4(captionBox, textArray, index = 0, wordsPerLine = 10) {
         if (index < textArray.length) {
             setTimeout(() => {
                 let line = textArray.slice(index, index + wordsPerLine).map(word => word.text).join(' ');
@@ -170,14 +170,14 @@
     }
 
     window.onload = () => {
-        displayCaptionPage4(document.getElementById('captionBox4'), captionsPage4, 0, 12);
+        displayCaptionPage4(document.getElementById('captionBox4'), captionsPage4, 0, 10);
 
         setTimeout(() => {
             const surveyButton = document.getElementById('surveyButton');
             surveyButton.disabled = false;
             surveyButton.style.cursor = 'pointer';
             surveyButton.style.opacity = '1';
-        }, 67000); // Enable after 67 seconds
+        }, 60000); // Enable after 67 seconds
     };
 </script>
 </body>
