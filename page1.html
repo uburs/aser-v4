@@ -142,11 +142,10 @@
             }
         }
         .navigation {
-            position: absolute;
-            bottom: 20px;
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            margin-top: 20px;
         }
         button {
             padding: 10px 20px;
@@ -181,15 +180,14 @@
     </div>
     <div id="page1" class="container">
         <div class="video-box">
-            <video id="video1" src="images/introComputing.mp4" controls></video>
+            <video id="video1" src="images/introComputing.mp4" autoplay></video>
         </div>
         <div class="caption-box" id="captionBox1">
             <!-- Captions will appear here -->
         </div>
-
-        <div class="navigation">
-            <button id="surveyButton" disabled onclick="window.location.href='https://virginiatech.questionpro.com/prototype1'">Begin Prototype 1 Survey</button>
-        </div>
+    </div>
+    <div class="navigation">
+        <button id="surveyButton" disabled onclick="window.location.href='https://virginiatech.questionpro.com/prototype1'">Begin Prototype 1 Survey</button>
     </div>
     <h3>Please note that the survey button will only become active once the video and caption has finished</h3>
     <script>
@@ -226,9 +224,13 @@
             video.play();
             video.volume = 0.40; // Set the volume to 40%
             displayCaption(document.getElementById('captionBox1'), captionsPage1, 0, 9);
-            
+
             video.addEventListener('ended', () => {
                 document.getElementById('surveyButton').disabled = false;
+            });
+
+            video.addEventListener('pause', () => {
+                video.play();
             });
         };
 
