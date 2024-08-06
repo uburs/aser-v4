@@ -80,11 +80,10 @@
             overflow-y: auto;
         }
         .navigation {
-            position: absolute;
-            bottom: 20px;
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            margin-top: 20px;
         }
         button {
             padding: 10px 20px;
@@ -96,8 +95,9 @@
             padding: 10px 18px;
             font-size: 18px;
             background-color: rgb(198, 205, 125);
-            margin-left: auto;
-            display:flex;
+            cursor: not-allowed;
+            opacity: 0.5;
+            margin-top: 20px;
         }
         .heading {
             margin-bottom: 20px;
@@ -136,8 +136,8 @@
         <div class="navigation">
             <!-- Navigation buttons can go here if needed -->
         </div>
-        <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype2'">Begin Prototype 2 Survey</button>
     </div>
+    <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype2'" disabled>Begin Prototype 2 Survey</button>
     <h3>Please note that the survey button will only become active once the video and caption has finished.</h3>
     <script>
         const textPage2 = "Engineering management: How to do all these things that I've discussed in a proper way. Managing the resources, we have time constraints. A project has to be finished in a certain amount of time. We have certain resources, especially money. We want a certain quality, and we want the construction to be safe. So all this has to be managed. Well, so that the project is executed by, Sometimes Engineers have to be involved in the policy as well Policy. Meaning, what are the rules that are required? What type of materials can be used? Where What type of structure should come up with? How can we construct without hurting the environment and then plan for all these? So there is a lot of management. If somebody becomes a civil engineer, says that, I don't want to work at the construction site. I'm not interested in doing things by myself, I would rather oversee supervise and manage. There is a lot of scope. There is a tremendous scope in engineering management, planning policy and so on. There are also others who become consultants. Consultants, ho are those? Who can work with different organizations and different clients to provide Solutions. These Solutions could be designing innovative and efficient systems, optimizing resource allocation, or implementing cutting-edge technologies to enhance project outcomes. Furthermore, consultants can offer expertise in risk management, sustainability practices, and compliance with regulatory standards. They play a crucial role in bridging the gap between theoretical knowledge and practical application, ensuring projects not only meet but exceed expectations. Therefore, a career in engineering management and consultancy provides a dynamic and fulfilling pathway for those who wish to make a significant impact in the field.";
@@ -171,7 +171,10 @@
 
             setTimeout(() => {
                 video.pause();
-                document.getElementById('surveyButton').style.display = 'block';
+                const surveyButton = document.getElementById('surveyButton');
+                surveyButton.disabled = false;
+                surveyButton.style.cursor = 'pointer';
+                surveyButton.style.opacity = '1';
             }, 60000); // Stop the video after 1 minute (60000 ms)
         };
         
