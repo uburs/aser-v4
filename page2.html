@@ -80,11 +80,10 @@
             overflow-y: auto;
         }
         .navigation {
-            position: absolute;
-            bottom: 20px;
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            margin-top: 20px;
         }
         button {
             padding: 10px 20px;
@@ -96,7 +95,6 @@
             padding: 10px 18px;
             font-size: 18px;
             background-color: rgb(198, 205, 125);
-            margin-left: auto;
             cursor: not-allowed;
             opacity: 0.5;
         }
@@ -134,9 +132,9 @@
                 </div>
             </div>
         </div>
-        <div class="navigation">
-            <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype2'" disabled>Begin Prototype 2 Survey</button>
-        </div>
+    </div>
+    <div class="navigation">
+        <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype2'" disabled>Begin Prototype 2 Survey</button>
     </div>
     <h3>Please note that the survey button will only become active once the video and caption has finished.</h3>
     <script>
@@ -166,19 +164,19 @@
             document.getElementById('page2').classList.add('active');
             const video = document.getElementById('video2');
             video.play();
-            video.volume = 0.25; // Set the volume to 35%
+            video.volume = 0.25; // Set the volume to 25%
             displayCaptionPage2(document.getElementById('captionBox2'), captionsPage2, 0, 13);
+
+            video.addEventListener('ended', () => {
+                document.getElementById('surveyButton').disabled = false;
+                document.getElementById('surveyButton').style.cursor = 'pointer';
+                document.getElementById('surveyButton').style.opacity = '1';
+            });
         };
         
         window.onload = () => {
             const video = document.getElementById('video2');
-            video.volume = 0.25; // Set the volume to 35%
-            video.onended = () => {
-                const surveyButton = document.getElementById('surveyButton');
-                surveyButton.disabled = false;
-                surveyButton.style.cursor = 'pointer';
-                surveyButton.style.opacity = '1';
-            };
+            video.volume = 0.25; // Set the volume to 25%
         };
     </script>
 </body>
