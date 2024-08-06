@@ -180,7 +180,7 @@
     </div>
     <div id="page1" class="container">
         <div class="video-box">
-            <video id="video1" src="images/introComputing.mp4" autoplay></video>
+            <video id="video1" src="images/introComputing.mp4" autoplay muted></video>
         </div>
         <div class="caption-box" id="captionBox1">
             <!-- Captions will appear here -->
@@ -225,13 +225,10 @@
             video.volume = 0.40; // Set the volume to 40%
             displayCaption(document.getElementById('captionBox1'), captionsPage1, 0, 9);
 
-            video.addEventListener('ended', () => {
+            setTimeout(() => {
+                video.pause();
                 document.getElementById('surveyButton').disabled = false;
-            });
-
-            video.addEventListener('pause', () => {
-                video.play();
-            });
+            }, 60000); // Stop the video after 1 minute (60000 ms)
         };
 
         window.onload = () => {
