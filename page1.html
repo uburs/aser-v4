@@ -195,7 +195,7 @@
 
         const captionsPage1 = textPage1.split(' ').map(word => ({ text: word, emotion: "neutral" }));
 
-        function displayCaption(captionBox, textArray, index = 0, wordsPerLine = 9) {
+        function displayCaption(captionBox, textArray, index = 0, wordsPerLine = 11) {
             if (index < textArray.length) {
                 setTimeout(() => {
                     let line = textArray.slice(index, index + wordsPerLine).map(word => {
