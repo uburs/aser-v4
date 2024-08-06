@@ -29,8 +29,6 @@
         }
         .container.active {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Added this to ensure proper spacing */
         }
         .content {
             display: flex;
@@ -73,11 +71,20 @@
             align-items: center;
             box-shadow: none; /* Remove any shadow */
         }
+        .quiz-container {
+            width: 30%;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
         .navigation {
+            position: absolute;
+            bottom: 20px;
             width: 100%;
             display: flex;
-            justify-content: center;
-            margin-top: 20px;
+            justify-content: space-between;
         }
         button {
             padding: 10px 20px;
@@ -89,6 +96,7 @@
             padding: 10px 18px;
             font-size: 18px;
             background-color: rgb(198, 205, 125);
+            margin-left: auto;
             cursor: not-allowed;
             opacity: 0.5;
         }
@@ -158,19 +166,19 @@
             document.getElementById('page2').classList.add('active');
             const video = document.getElementById('video2');
             video.play();
-            video.volume = 0.25; // Set the volume to 25%
+            video.volume = 0.25; // Set the volume to 35%
             displayCaptionPage2(document.getElementById('captionBox2'), captionsPage2, 0, 13);
-
-            video.addEventListener('ended', () => {
-                document.getElementById('surveyButton').disabled = false;
-                document.getElementById('surveyButton').style.cursor = 'pointer';
-                document.getElementById('surveyButton').style.opacity = '1';
-            });
         };
         
         window.onload = () => {
             const video = document.getElementById('video2');
-            video.volume = 0.25; // Set the volume to 25%
+            video.volume = 0.25; // Set the volume to 35%
+            video.onended = () => {
+                const surveyButton = document.getElementById('surveyButton');
+                surveyButton.disabled = false;
+                surveyButton.style.cursor = 'pointer';
+                surveyButton.style.opacity = '1';
+            };
         };
     </script>
 </body>
