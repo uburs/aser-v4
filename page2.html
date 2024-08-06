@@ -97,8 +97,7 @@
             font-size: 18px;
             background-color: rgb(198, 205, 125);
             margin-left: auto;
-            cursor: not-allowed;
-            opacity: 0.5;
+            display: none;
         }
         .heading {
             margin-bottom: 20px;
@@ -135,8 +134,9 @@
             </div>
         </div>
         <div class="navigation">
-            <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype2'" disabled>Begin Prototype 2 Survey</button>
+            <!-- Navigation buttons can go here if needed -->
         </div>
+        <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype2'">Begin Prototype 2 Survey</button>
     </div>
     <h3>Please note that the survey button will only become active once the video and caption has finished.</h3>
     <script>
@@ -166,13 +166,18 @@
             document.getElementById('page2').classList.add('active');
             const video = document.getElementById('video2');
             video.play();
-            video.volume = 0.25; // Set the volume to 35%
+            video.volume = 0.25; // Set the volume to 25%
             displayCaptionPage2(document.getElementById('captionBox2'), captionsPage2, 0, 13);
+
+            setTimeout(() => {
+                video.pause();
+                document.getElementById('surveyButton').style.display = 'block';
+            }, 60000); // Stop the video after 1 minute (60000 ms)
         };
         
         window.onload = () => {
             const video = document.getElementById('video2');
-            video.volume = 0.25; // Set the volume to 35%
+            video.volume = 0.25; // Set the volume to 25%
             video.onended = () => {
                 const surveyButton = document.getElementById('surveyButton');
                 surveyButton.disabled = false;
