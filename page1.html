@@ -39,14 +39,14 @@
         }
         .caption-box {
             width: 70%;
-            padding: 40px;
+            padding: 20px;
             overflow-y: auto;
             font-size: 18px;
             line-height: 1.5;
             background: #fff;
             text-align: left;
             display: flex;
-            flex-direction: column-reverse;
+            flex-direction: column-reverse; /* Make the captions flow from bottom to top */
         }
         .quiz-container {
             order: 3;
@@ -207,9 +207,10 @@
                         return span;
                     });
 
-                    line.forEach(span => captionBox.appendChild(span));
-                    captionBox.appendChild(document.createElement('br'));
-                    captionBox.scrollTop = captionBox.scrollHeight; // Scroll to bottom
+                    const br = document.createElement('br');
+                    captionBox.prepend(br);
+                    line.forEach(span => captionBox.prepend(span));
+                    captionBox.scrollTop = 0; // Scroll to top
 
                     displayCaption(captionBox, textArray, index + wordsPerLine, wordsPerLine);
                 }, 4000); // Adjust the speed of the captions here
