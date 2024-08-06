@@ -158,8 +158,9 @@
             padding: 10px 18px;
             font-size: 16px;
             background-color: rgb(198, 205, 125);
-            margin-left: auto;
-            display: none;
+            cursor: not-allowed;
+            opacity: 0.5;
+            margin-top: 20px;
         }
         .heading {
             margin-bottom: 20px;
@@ -187,10 +188,7 @@
             <!-- Captions will appear here -->
         </div>
     </div>
-    <div class="navigation">
-        <!-- Navigation buttons can go here if needed -->
-    </div>
-    <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype1'">Begin Prototype 1 Survey</button>
+    <button id="surveyButton" onclick="window.location.href='https://virginiatech.questionpro.com/prototype1'" disabled>Begin Prototype 1 Survey</button>
     <h3>Please note that the survey button will only become active once the video and caption has finished</h3>
     <script>
         const textPage1 = "Welcome all of you to this very important course, of introduction to computing. So before finally starting the course, I want to make clear some of the points. One of the thing is that I know that this course is being offered to students belonging to diversity file departments. So I will try my best to make this course concise and focus and make it in a way that it is beneficial for all of the students. And the second thing is that some of the students have studied computer science in their higher, secondary school and some of the students have not studied computer science before. So I will try to make the content in a way that it is taking you from the base until the maximum point where we want you to take. So first of all, what is computer science? You know, the computer science is a study of hardware and software. Networks, robotics, Database, security, algorithmic Solutions, and information processing. It involves the theory of computation, algorithms, data structures, and artificial intelligence. Understanding these concepts is crucial for developing efficient and innovative technological solutions.";
@@ -229,7 +227,10 @@
 
             setTimeout(() => {
                 video.pause();
-                document.getElementById('surveyButton').style.display = 'block';
+                const surveyButton = document.getElementById('surveyButton');
+                surveyButton.disabled = false;
+                surveyButton.style.cursor = 'pointer';
+                surveyButton.style.opacity = '1';
             }, 60000); // Stop the video after 1 minute (60000 ms)
         };
 
