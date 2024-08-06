@@ -172,7 +172,7 @@
         return { text: word, emotion };
     });
 
-    function displayCaptionPage4(captionBox, textArray, index = 0, wordsPerLine = 14) {
+    function displayCaptionPage4(captionBox, textArray, index = 0, wordsPerLine = 10) {
         if (index < textArray.length) {
             setTimeout(() => {
                 let line = textArray.slice(index, index + wordsPerLine).map(word => word.text).join(' ');
@@ -190,7 +190,7 @@
     }
 
     window.onload = () => {
-        displayCaptionPage4(document.getElementById('captionBox4'), captionsPage4, 0, 14);
+        displayCaptionPage4(document.getElementById('captionBox4'), captionsPage4, 0, 10);
 
         setTimeout(() => {
             const surveyButton = document.getElementById('surveyButton');
