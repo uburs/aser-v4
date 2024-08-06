@@ -36,9 +36,14 @@
             font-size: 18px;
             line-height: 1.5;
             background: #fff;
-            text-align: justify;
+            text-align: center; /* Center align the text */
             display: flex;
             flex-direction: column-reverse;
+            align-items: center; /* Center align the text */
+        }
+        .caption-box div {
+            width: 100%;
+            text-align: center; /* Center align each line */
         }
         .emotion-happy {
             color: green;
@@ -230,6 +235,7 @@
                     const lineDiv = document.createElement('div');
                     lineDiv.style.display = 'flex';
                     lineDiv.style.flexDirection = 'row';
+                    lineDiv.style.justifyContent = 'center'; /* Center align each line */
                     line.forEach(span => lineDiv.appendChild(span));
                     captionBox.insertBefore(lineDiv, captionBox.firstChild);
                     captionBox.scrollTop = captionBox.scrollHeight; // Scroll to bottom
