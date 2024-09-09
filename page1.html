@@ -131,7 +131,7 @@
 
         const captionsPage1 = textPage1.split(' ').map(word => ({ text: word, emotion: "neutral" }));
 
-        function displayCaption(captionBox, textArray, index = 0, wordsPerLine = 12) {
+        function displayCaption(captionBox, textArray, index = 0, wordsPerLine = 8) {
             if (index < textArray.length) {
                 setTimeout(() => {
                     let line = textArray.slice(index, index + wordsPerLine).map(word => {
@@ -160,7 +160,7 @@
             const video = document.getElementById('video1');
             video.play();
             video.volume = 0.40; // Set the volume to 40%
-            displayCaption(document.getElementById('captionBox1'), captionsPage1, 0, 12);
+            displayCaption(document.getElementById('captionBox1'), captionsPage1, 0, 8);
 
             setTimeout(() => {
                 video.pause();
